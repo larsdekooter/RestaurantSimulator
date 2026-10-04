@@ -24,11 +24,6 @@ public class ImagePanel extends javax.swing.JPanel {
         super();
         this.image = image;
         this.icon = image != null ? new javax.swing.ImageIcon(image) : null;
-        java.awt.Dimension size = new java.awt.Dimension(image.getHeight(null), image.getWidth(null));
-        setPreferredSize(size);
-        setSize(size);
-        setMinimumSize(size);
-        setMaximumSize(size);
     }
 
     public javax.swing.Icon getIcon() {
@@ -38,7 +33,6 @@ public class ImagePanel extends javax.swing.JPanel {
     @BeanProperty(preferred = true, visualUpdate = true, description
             = "The icon this component will display.")
     public void setIcon(javax.swing.Icon icon) {
-        System.out.println(icon);
         this.icon = icon;
         if (icon instanceof javax.swing.ImageIcon) {
             this.image = ((javax.swing.ImageIcon) icon).getImage();
@@ -48,12 +42,13 @@ public class ImagePanel extends javax.swing.JPanel {
         repaint();
     }
 
+    // Paint the picture to the panel and scale it to fit within the panel.
     protected void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);
-        //TODO: scale image
         if (this.icon != null) {
-            this.image = ((javax.swing.ImageIcon) this.icon).getImage();//.getScaledInstance(WIDTH, HEIGHT, java.awt.Image.SCALE_DEFAULT);
-            g.drawImage(this.image, 0, 0, this.image.getHeight(null), this.image.getWidth(null), null);
+            System.out.println(this.getWidth() + " " + this.getHeight());
+            this.image = ((javax.swing.ImageIcon) this.icon).getImage();
+            g.drawImage(this.image, 0, 0, this.getWidth(), this.getHeight(), null);
         }
     }
 }
