@@ -20,7 +20,6 @@ public class ImagePanel extends javax.swing.JPanel {
     }
 
     public ImagePanel(java.awt.Image image) {
-        System.out.println(image);
         super();
         this.image = image;
         this.icon = image != null ? new javax.swing.ImageIcon(image) : null;
@@ -34,8 +33,8 @@ public class ImagePanel extends javax.swing.JPanel {
             = "The icon this component will display.")
     public void setIcon(javax.swing.Icon icon) {
         this.icon = icon;
-        if (icon instanceof javax.swing.ImageIcon) {
-            this.image = ((javax.swing.ImageIcon) icon).getImage();
+        if (icon instanceof javax.swing.ImageIcon imageIcon) {
+            this.image = imageIcon.getImage();
         } else {
             this.image = null;
         }
@@ -43,10 +42,10 @@ public class ImagePanel extends javax.swing.JPanel {
     }
 
     // Paint the picture to the panel and scale it to fit within the panel.
+    @Override
     protected void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);
         if (this.icon != null) {
-            System.out.println(this.getWidth() + " " + this.getHeight());
             this.image = ((javax.swing.ImageIcon) this.icon).getImage();
             g.drawImage(this.image, 0, 0, this.getWidth(), this.getHeight(), null);
         }
