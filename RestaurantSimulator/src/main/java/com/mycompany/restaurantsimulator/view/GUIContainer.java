@@ -1,4 +1,7 @@
-package com.mycompany.restaurantsimulator;
+package com.mycompany.restaurantsimulator.view;
+
+import com.mycompany.restaurantsimulator.view.components.ImagePanel;
+import com.mycompany.restaurantsimulator.view.components.RoundedButton;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -36,7 +39,7 @@ public class GUIContainer extends javax.swing.JFrame {
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imagePanel2 = new com.mycompany.restaurantsimulator.components.ImagePanel();
+        imagePanel2 = new ImagePanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -49,7 +52,7 @@ public class GUIContainer extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        roundedButton3 = new com.mycompany.restaurantsimulator.components.RoundedButton();
+        roundedButton3 = new RoundedButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -58,12 +61,12 @@ public class GUIContainer extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1600, 980));
 
         imagePanel2.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/com/mycompany/restaurantsimulator/resources/background.jpg"))); // NOI18N
+                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/background.jpg"))); // NOI18N
         imagePanel2.setOpaque(false);
         imagePanel2.setPreferredSize(new java.awt.Dimension(1600, 980));
 
         jButton2.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/com/mycompany/restaurantsimulator/resources/4415238-200.png"))); // NOI18N
+                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/4415238-200.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -103,7 +106,7 @@ public class GUIContainer extends javax.swing.JFrame {
 
         roundedButton3.setBackground(new java.awt.Color(255, 255, 255));
         roundedButton3.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/com/mycompany/restaurantsimulator/resources/order.png"))); // NOI18N
+                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/order.png"))); // NOI18N
         roundedButton3.setBorderPainted(false);
         roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -327,13 +330,9 @@ public class GUIContainer extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -352,7 +351,7 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.mycompany.restaurantsimulator.components.ImagePanel imagePanel2;
+    private ImagePanel imagePanel2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -367,7 +366,7 @@ public class GUIContainer extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private com.mycompany.restaurantsimulator.components.RoundedButton roundedButton3;
+    private RoundedButton roundedButton3;
     // End of variables declaration//GEN-END:variables
 }
 
