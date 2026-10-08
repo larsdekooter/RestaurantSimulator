@@ -4,6 +4,7 @@
  */
 package com.mycompany.restaurantsimulator.components;
 
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Shape;
@@ -12,6 +13,8 @@ import java.beans.BeanProperty;
 
 import javax.swing.Icon;
 import javax.swing.JButton;
+
+import com.mycompany.restaurantsimulator.enums.CursorType;
 
 /**
  *
@@ -105,6 +108,11 @@ public class RoundedButton extends JButton {
     public void setBorderRadius(int borderRadius) {
         this.borderRadius = borderRadius;
         repaint();
+    }
+
+    @BeanProperty(preferred = false, visualUpdate = true, description = "The cursor on hover")
+    public void setCursor(CursorType type) {
+        this.setCursor(Cursor.getPredefinedCursor(type.getType()));
     }
 
 }
