@@ -1,6 +1,7 @@
 package com.mycompany.restaurantsimulator;
 
 import com.mycompany.restaurantsimulator.view.GUIContainer;
+
 /**
  *
  * @author lars
