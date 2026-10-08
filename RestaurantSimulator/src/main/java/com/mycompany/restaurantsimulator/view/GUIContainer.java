@@ -1,8 +1,5 @@
 package com.mycompany.restaurantsimulator.view;
 
-import com.mycompany.restaurantsimulator.view.components.ImagePanel;
-import com.mycompany.restaurantsimulator.view.components.RoundedButton;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -35,10 +32,12 @@ public class GUIContainer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imagePanel2 = new ImagePanel();
+        imagePanel2 = new com.mycompany.restaurantsimulator.view.components.ImagePanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -51,22 +50,21 @@ public class GUIContainer extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        roundedButton3 = new RoundedButton();
+        roundedButton3 = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(1600, 980));
 
-        imagePanel2.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/background.jpg"))); // NOI18N
+        imagePanel2.setIcon(new javax.swing.ImageIcon(getClass()
+                .getResource("/com/mycompany/restaurantsimulator/view/resources/background.jpg"))); // NOI18N
         imagePanel2.setOpaque(false);
         imagePanel2.setPreferredSize(new java.awt.Dimension(1600, 980));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/4415238-200.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass()
+                .getResource("/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,7 +104,7 @@ public class GUIContainer extends javax.swing.JFrame {
 
         roundedButton3.setBackground(new java.awt.Color(255, 255, 255));
         roundedButton3.setIcon(new javax.swing.ImageIcon(
-                getClass().getResource("/main/java/com/mycompany/restaurantsimulator/resources/order.png"))); // NOI18N
+                getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/order.png"))); // NOI18N
         roundedButton3.setBorderPainted(false);
         roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -142,54 +140,72 @@ public class GUIContainer extends javax.swing.JFrame {
         }
 
         javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(imagePanel2);
+        // Prevent layout changes when changin visibility
         imagePanel2Layout.setHonorsVisibility(false);
+        // Hide the table initially
         jScrollPane1.setVisible(false);
         imagePanel2.setLayout(imagePanel2Layout);
         imagePanel2Layout.setHorizontalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(imagePanel2Layout.createSequentialGroup()
-                                .addGroup(imagePanel2Layout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                .addGroup(imagePanel2Layout.createParallelGroup(
+                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(imagePanel2Layout
+                                                .createSequentialGroup()
                                                 .addGap(398, 398, 398)
-                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                                .addComponent(jButton6,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        109,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(113, 113, 113)
-                                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                                .addComponent(jButton7,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        109,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE)
                                                                 .addComponent(jButton8,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        79,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
-                                                                .addGap(167, 167, 167)
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
+                                                                .addGap(167, 167,
+                                                                        167)
                                                                 .addComponent(jButton13,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 215,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        215,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE))))
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                        .addGroup(imagePanel2Layout
+                                                .createSequentialGroup()
                                                 .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
                                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                                 .addComponent(jScrollPane1,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
-                                                                .addGroup(imagePanel2Layout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
+                                                                .addGroup(imagePanel2Layout
+                                                                        .createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
                                                                         .addGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                                 imagePanel2Layout
@@ -212,7 +228,8 @@ public class GUIContainer extends javax.swing.JFrame {
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                 .addPreferredGap(
                                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                        261, Short.MAX_VALUE)
+                                                                                        261,
+                                                                                        Short.MAX_VALUE)
                                                                                 .addComponent(jButton12,
                                                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                         92,
@@ -232,85 +249,129 @@ public class GUIContainer extends javax.swing.JFrame {
                                                                                 .addPreferredGap(
                                                                                         javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                                                 .addComponent(jButton5,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        109,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(324, 324, 324)
-                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                                .addComponent(jButton4,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        109,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(93, 93, 93)
-                                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109,
+                                                .addComponent(jButton3,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        109,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44,
+                                                .addPreferredGap(
+                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        44,
                                                         Short.MAX_VALUE)))
                                 .addComponent(jButton2)
                                 .addContainerGap()));
         imagePanel2Layout.setVerticalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(imagePanel2Layout.createSequentialGroup()
-                                .addGroup(imagePanel2Layout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                .addGroup(imagePanel2Layout.createParallelGroup(
+                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(imagePanel2Layout
+                                                .createSequentialGroup()
                                                 .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
-                                                                .addGap(157, 157, 157)
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
+                                                                .addGap(157, 157,
+                                                                        157)
                                                                 .addComponent(jButton2,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 105,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        105,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                        .addGroup(imagePanel2Layout
+                                                                .createSequentialGroup()
                                                                 .addGap(21, 21, 21)
                                                                 .addComponent(jButton9,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        79,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(38, 38, 38)
                                                                 .addComponent(jButton10,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        79,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(1, 1, 1)
                                                 .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jButton6,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButton7,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(imagePanel2Layout
+                                                .createSequentialGroup()
                                                 .addGap(263, 263, 263)
-                                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                                .addComponent(jButton8,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        70,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                        .addGroup(imagePanel2Layout
+                                                .createSequentialGroup()
                                                 .addGap(81, 81, 81)
                                                 .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jButton3,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButton4,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButton5,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(179, 179, 179)
-                                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70,
+                                                .addComponent(jButton13,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        70,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(78, 78, 78)
-                                .addGroup(imagePanel2Layout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(imagePanel2Layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(imagePanel2Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imagePanel2Layout
+                                .addGroup(imagePanel2Layout.createParallelGroup(
+                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(imagePanel2Layout
                                                 .createSequentialGroup()
-                                                .addComponent(roundedButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(jScrollPane1,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(54, 54, 54)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                                .addPreferredGap(
+                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(imagePanel2Layout
+                                                        .createParallelGroup(
+                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jButton11,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jButton12,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                imagePanel2Layout
+                                                        .createSequentialGroup()
+                                                        .addComponent(roundedButton3,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(54, 54, 54)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -318,15 +379,20 @@ public class GUIContainer extends javax.swing.JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(imagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addComponent(imagePanel2,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        Short.MAX_VALUE)));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(imagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(imagePanel2,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(14, Short.MAX_VALUE)));
 
         pack();
@@ -341,12 +407,17 @@ public class GUIContainer extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+                    .getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -366,7 +437,7 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ImagePanel imagePanel2;
+    private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -381,6 +452,6 @@ public class GUIContainer extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private RoundedButton roundedButton3;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton roundedButton3;
     // End of variables declaration//GEN-END:variables
 }

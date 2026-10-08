@@ -29,8 +29,7 @@ public class ImagePanel extends javax.swing.JPanel {
         return this.icon;
     }
 
-    @BeanProperty(preferred = true, visualUpdate = true, description
-            = "The icon this component will display.")
+    @BeanProperty(preferred = true, visualUpdate = true, description = "The icon this component will display.")
     public void setIcon(javax.swing.Icon icon) {
         this.icon = icon;
         if (icon instanceof javax.swing.ImageIcon imageIcon) {
