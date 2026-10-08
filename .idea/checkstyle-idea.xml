@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CheckStyle-IDEA" serialisationVersion="2">
+    <checkstyleVersion>14.1.0</checkstyleVersion>
+    <scanScope>JavaOnly</scanScope>
+    <copyLibs>true</copyLibs>
+    <option name="thirdPartyClasspath" />
+    <option name="activeLocationIds">
+      <option value="f30ced31-d0b8-4b07-999a-fef250c653e2" />
+    </option>
+    <option name="locations">
+      <list>
+        <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">bundled-sun-checks</ConfigurationLocation>
+        <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">bundled-google-checks</ConfigurationLocation>
+        <ConfigurationLocation id="f30ced31-d0b8-4b07-999a-fef250c653e2" type="LOCAL_FILE" scope="All" description="TU/e Checks">C:\Users\dylan\Documents\Checkstyle\2IP90_checks.xml</ConfigurationLocation>
+      </list>
+    </option>
+  </component>
+</project>

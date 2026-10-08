@@ -279,7 +279,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.mycompany.restaurantsimulator.components.RoundedButton" name="roundedButton3">
+        <Component class="main.java.com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
