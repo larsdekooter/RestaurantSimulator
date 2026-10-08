@@ -15,6 +15,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>25</maven.compiler.release>
-        <exec.mainClass>com.mycompany.restaurantsimulator.RestaurantSimulator</exec.mainClass>
+        <exec.mainClass>main.java.com.mycompany.restaurantsimulator.view.RestaurantSimulator</exec.mainClass>
     </properties>
 </project>

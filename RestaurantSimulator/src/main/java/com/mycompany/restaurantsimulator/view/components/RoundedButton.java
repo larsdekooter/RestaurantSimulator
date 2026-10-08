@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.restaurantsimulator.components;
+package com.mycompany.restaurantsimulator.view.components;
 
 import java.awt.Cursor;
 import java.awt.Graphics;
@@ -14,7 +14,7 @@ import java.beans.BeanProperty;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
-import com.mycompany.restaurantsimulator.enums.CursorType;
+import com.mycompany.restaurantsimulator.view.enums.CursorType;
 
 /**
  *

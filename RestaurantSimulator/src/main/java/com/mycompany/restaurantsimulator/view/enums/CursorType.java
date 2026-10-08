@@ -1,4 +1,4 @@
-package com.mycompany.restaurantsimulator.enums;
+package com.mycompany.restaurantsimulator.view.enums;
 
 import java.awt.Cursor;
 

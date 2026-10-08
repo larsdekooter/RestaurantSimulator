@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package com.mycompany.restaurantsimulator;
 
+import com.mycompany.restaurantsimulator.view.GUIContainer;
 /**
  *
  * @author lars
