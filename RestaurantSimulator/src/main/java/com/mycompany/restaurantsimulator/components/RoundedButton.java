@@ -17,7 +17,8 @@ import javax.swing.JButton;
 import com.mycompany.restaurantsimulator.enums.CursorType;
 
 /**
- *
+ * https://stackoverflow.com/questions/8515601/java-swing-rounded-border-for-jtextfield
+ * 
  * @author lars
  */
 public class RoundedButton extends JButton {
