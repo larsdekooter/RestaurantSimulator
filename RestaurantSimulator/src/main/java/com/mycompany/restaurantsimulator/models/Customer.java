@@ -15,19 +15,19 @@ public class Customer {
     /// Return the customer's order
     /// or create one if the customer had not ordered yet.
     /// @return the order of the customer
-    public Order getOrder() {
+    public Order getOrder(Menu menu) {
         if (order == null) {
-            order = new Order(id, makeNewOrder());
+            order = new Order(id, makeNewOrder(menu));
         }
         return order;
     }
 
-    private Food[] makeNewOrder() {
+    private Food[] makeNewOrder(Menu menu) {
         Food[] newOrder = new Food[partySize];
 
         Random rand = new Random();
         for (int i = 0; i < partySize; i++) {
-            newOrder[i] = Menu.menu[rand.nextInt(Menu.menu.length)];
+            newOrder[i] = menu.menu[rand.nextInt(menu.menu.length)];
         }
 
         return newOrder;
