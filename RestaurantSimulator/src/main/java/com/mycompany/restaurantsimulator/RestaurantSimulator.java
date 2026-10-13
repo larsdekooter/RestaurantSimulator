@@ -1,6 +1,9 @@
 package com.mycompany.restaurantsimulator;
 
+import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.view.GUIContainer;
+import controllers.RestaurantController;
+
 
 /**
  *
@@ -9,7 +12,16 @@ import com.mycompany.restaurantsimulator.view.GUIContainer;
 public class RestaurantSimulator {
 
     public static void main(String[] args) {
+        //Initialize View
         GUIContainer container = new GUIContainer();
+
+        //Initialize Model
+        Restaurant restaurant = new Restaurant("De Kooter's", 12, 2);
+
+        //Initialize Controller
+        RestaurantController restaurantController = new RestaurantController(restaurant, container);
+
         container.setVisible(true);
+
     }
 }

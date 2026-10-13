@@ -2,7 +2,7 @@ package com.mycompany.restaurantsimulator.models;
 
 public class Menu {
 
-    public static Food[] menu = {
+    public Food[] menu = {
         new Food("Steak", 25.00, 20),
         new Food("Carpaccio", 12.50, 10),
         new Food("Garlic bread", 7.50, 15),
