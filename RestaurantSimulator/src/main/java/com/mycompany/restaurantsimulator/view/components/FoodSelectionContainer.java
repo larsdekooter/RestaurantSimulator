@@ -1,19 +1,20 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
+ * to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java
+ * to edit this template
  */
+
 package com.mycompany.restaurantsimulator.view.components;
 
+import com.mycompany.restaurantsimulator.models.Food;
+import com.mycompany.restaurantsimulator.models.Menu;
+import java.awt.Dimension;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import com.mycompany.restaurantsimulator.models.Food;
-import com.mycompany.restaurantsimulator.models.Menu;
-import java.awt.Dimension;
-import java.util.Arrays;
 
 /**
  *
@@ -21,13 +22,21 @@ import java.util.Arrays;
  */
 public class FoodSelectionContainer extends javax.swing.JFrame {
 
+    private Menu menu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger
             .getLogger(FoodSelectionContainer.class.getName());
 
     /**
      * Creates new form FoodSelection
      */
+    public FoodSelectionContainer(Menu menu) {
+        this.menu = menu;
+        initComponents();
+        updateList(menu);
+    }
+
     public FoodSelectionContainer() {
+        this.menu = new Menu();
         initComponents();
     }
 
@@ -47,14 +56,14 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Food Selection");
 
-        jList1.setModel(new javax.swing.DefaultListModel<String>());
+        jList1.setModel(new javax.swing.DefaultListModel<>());
         jList1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 int foodIndex = jList1.getSelectedIndex();
 
                 try {
-                    Food selectedFood = Menu.menu[foodIndex];
+                    Food selectedFood = menu.menu[foodIndex];
                     // TODO: Put on the stove
                 } catch (IndexOutOfBoundsException exc) {
                     System.out.println(exc);
@@ -62,7 +71,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
 
             }
         });
-        updateList();
+        updateList(menu);
 
         DefaultListCellRenderer renderer = (DefaultListCellRenderer) jList1.getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,12 +93,12 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
                                 .addContainerGap()));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
-    private void updateList() {
+    private void updateList(Menu menu) {
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
         model.clear();
-        for (Food food : Menu.menu) {
+        for (Food food : menu.menu) {
             model.addElement(food.name);
 
         }
@@ -98,7 +107,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
         // (optional) ">
@@ -109,7 +118,8 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info
+                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
