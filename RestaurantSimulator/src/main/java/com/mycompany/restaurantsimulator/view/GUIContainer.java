@@ -1,8 +1,11 @@
 package com.mycompany.restaurantsimulator.view;
 
-import com.mycompany.restaurantsimulator.view.components.ImagePanel;
-import com.mycompany.restaurantsimulator.view.components.RoundedButton;
-import javax.swing.*;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+
+import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
+import com.mycompany.restaurantsimulator.view.components.OrderContainer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
@@ -59,13 +62,14 @@ public class GUIContainer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         imagePanel2 = new com.mycompany.restaurantsimulator.view.components.ImagePanel();
         jButton2 = new javax.swing.JButton();
         roundedButton3 = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
-        jButton1 = new javax.swing.JButton();
+        jButton1 = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 850));
@@ -89,10 +93,40 @@ public class GUIContainer extends javax.swing.JFrame {
         roundedButton3.setBorderPainted(false);
         roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
+        roundedButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toggleOrderTableVisibility(evt);
+            }
 
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                growButton(roundedButton3);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                shrinkButton(roundedButton3);
+            }
+        });
+
+        jButton1.setBorderPainted(true);
+        jButton1.setFill(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectFoodForStove(evt);
+            }
+
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                growButton(jButton1);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                shrinkButton(jButton1);
+            }
+
+        });
+
+        jButton1.setBorderWidth(4);
+        jButton1.setBorderRadius(20);
 
         javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(imagePanel2);
         imagePanel2.setLayout(imagePanel2Layout);
@@ -114,8 +148,8 @@ public class GUIContainer extends javax.swing.JFrame {
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                                 imagePanel2Layout.createSequentialGroup()
                                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(399, 399, 399)))));
+                                                                145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(406, 406, 406)))));
         imagePanel2Layout.setVerticalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(imagePanel2Layout.createSequentialGroup()
@@ -123,9 +157,9 @@ public class GUIContainer extends javax.swing.JFrame {
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(54, 54, 54)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(364, 364, 364)
+                                .addGap(369, 369, 369)
                                 .addComponent(roundedButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(21, Short.MAX_VALUE)));
@@ -149,6 +183,20 @@ public class GUIContainer extends javax.swing.JFrame {
 
         pack();
     } // </editor-fold>//GEN-END:initComponents
+
+    private void growButton(JButton button) {
+        int sizeIncrement = 4;
+        button.setSize(
+                new Dimension(button.getWidth() + sizeIncrement, button.getHeight() + sizeIncrement));
+        button.setLocation(button.getLocation().x - sizeIncrement / 2, button.getLocation().y - sizeIncrement / 2);
+    }
+
+    private void shrinkButton(JButton button) {
+        int sizeIncrement = 4;
+        button.setSize(
+                new Dimension(button.getWidth() - sizeIncrement, button.getHeight() - sizeIncrement));
+        button.setLocation(button.getLocation().x + sizeIncrement / 2, button.getLocation().y + sizeIncrement / 2);
+    }
 
     /**
      * @param args the command line arguments
@@ -179,4 +227,11 @@ public class GUIContainer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new GUIContainer().setVisible(true));
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton jButton1;
+    private javax.swing.JButton jButton2;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton roundedButton3;
+    // End of variables declaration//GEN-END:variables
 }
