@@ -4,10 +4,13 @@
  */
 package com.mycompany.restaurantsimulator.view.components;
 
+import java.awt.BasicStroke;
 import java.awt.Cursor;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.geom.RoundRectangle2D;
 import java.beans.BeanProperty;
 
@@ -25,6 +28,8 @@ public class RoundedButton extends JButton {
 
     private Shape shape;
     public int borderRadius = 200;
+    public boolean fill = true;
+    public int borderWidth = 1;
 
     public RoundedButton() {
         super();
@@ -80,6 +85,8 @@ public class RoundedButton extends JButton {
 
     @Override
     protected void paintComponent(Graphics g) {
+        if (!this.fill)
+            return;
         g.setColor(getBackground());
         g.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, this.borderRadius, this.borderRadius);
         super.paintComponent(g);
@@ -89,8 +96,15 @@ public class RoundedButton extends JButton {
     protected void paintBorder(Graphics g) {
         if (!this.isBorderPainted())
             return;
+
+        Graphics2D g2 = (Graphics2D) g;
+        Stroke oldStroke = g2.getStroke();
+
+        g2.setStroke(new BasicStroke(this.borderWidth));
         g.setColor(getForeground());
         g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, this.borderRadius, this.borderRadius);
+
+        g2.setStroke(oldStroke);
     }
 
     @Override
@@ -116,4 +130,19 @@ public class RoundedButton extends JButton {
         this.setCursor(Cursor.getPredefinedCursor(type.getType()));
     }
 
+    public void setFill(boolean filled) {
+        this.fill = filled;
+    }
+
+    public boolean getFill() {
+        return this.fill;
+    }
+
+    public void setBorderWidth(int borderWidth) {
+        this.borderWidth = borderWidth;
+    }
+
+    public int getBorderWidth() {
+        return this.borderWidth;
+    }
 }
