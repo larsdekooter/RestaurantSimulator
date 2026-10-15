@@ -7,8 +7,8 @@
 
 package com.mycompany.restaurantsimulator.view.components;
 
-import com.mycompany.restaurantsimulator.models.Food;
 import com.mycompany.restaurantsimulator.models.Menu;
+import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import java.awt.Dimension;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
@@ -63,7 +63,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
                 int foodIndex = jList1.getSelectedIndex();
 
                 try {
-                    Food selectedFood = menu.menu[foodIndex];
+                    Food selectedFood = menu.foods[foodIndex];
                     // TODO: Put on the stove
                 } catch (IndexOutOfBoundsException exc) {
                     System.out.println(exc);
@@ -98,7 +98,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     private void updateList(Menu menu) {
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
         model.clear();
-        for (Food food : menu.menu) {
+        for (Food food : menu.foods) {
             model.addElement(food.name);
 
         }
