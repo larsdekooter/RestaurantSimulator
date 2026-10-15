@@ -1,9 +1,13 @@
 package com.mycompany.restaurantsimulator.view;
 
-import java.awt.Dimension;
-
 import javax.swing.JButton;
+import javax.swing.JProgressBar;
+
+import com.mycompany.restaurantsimulator.view.components.ImagePanel;
 import com.mycompany.restaurantsimulator.view.components.RoundedButton;
+import com.mycompany.restaurantsimulator.view.components.TableButton;
+import com.mycompany.restaurantsimulator.models.GlobalEvents;
+import com.mycompany.restaurantsimulator.models.Table;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
@@ -39,6 +43,14 @@ public class GUIContainer extends javax.swing.JFrame {
         return roundedButton3;
     }
 
+    public JProgressBar getStoveProgressBar() {
+        return this.stoveProgressBar;
+    }
+
+    public TableButton[] getTables() {
+        return this.tables;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,98 +69,213 @@ public class GUIContainer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imagePanel2 = new com.mycompany.restaurantsimulator.view.components.ImagePanel();
+        imagePanel2 = new ImagePanel();
         jButton2 = new javax.swing.JButton();
-        roundedButton3 = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
-        jButton1 = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
+        roundedButton3 = new RoundedButton();
+        jButton1 = new RoundedButton();
+        roundedButton1 = new TableButton(1);
+        roundedButton7 = new TableButton(2);
+        roundedButton8 = new TableButton(3);
+        roundedButton9 = new TableButton(4);
+        roundedButton10 = new TableButton(5);
+        roundedButton11 = new TableButton(6);
+        roundedButton12 = new TableButton(7);
+        roundedButton13 = new TableButton(8);
+        roundedButton14 = new TableButton(9);
+        stoveProgressBar = new JProgressBar();
+
+        tables = new TableButton[] { roundedButton1, roundedButton7, roundedButton8,
+                roundedButton9, roundedButton10,
+                roundedButton11, roundedButton12, roundedButton13, roundedButton14 };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 850));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 797));
 
-        imagePanel2.setIcon(new javax.swing.ImageIcon(getClass()
-                .getResource("/com/mycompany/restaurantsimulator/view/resources/background.jpg"))); // NOI18N
+        imagePanel2.setIcon(new javax.swing.ImageIcon(
+                getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/background.jpg"))); // NOI18N
         imagePanel2.setOpaque(false);
         imagePanel2.setPreferredSize(new java.awt.Dimension(1300, 797));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass()
-                .getResource("/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(
+                getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GlobalEvents.growButton(evt);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GlobalEvents.shrinkButton(evt);
+            }
+        });
 
         roundedButton3.setBackground(new java.awt.Color(255, 255, 255));
-        roundedButton3.setIcon(new javax.swing.ImageIcon(getClass()
-                .getResource("/com/mycompany/restaurantsimulator/view/resources/order.png"))); // NOI18N
+        roundedButton3.setIcon(new javax.swing.ImageIcon(
+                getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/order.png"))); // NOI18N
         roundedButton3.setBorderPainted(false);
         roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
         roundedButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                growButton(roundedButton3);
+                GlobalEvents.growButton(evt);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                shrinkButton(roundedButton3);
+                GlobalEvents.shrinkButton(evt);
             }
         });
 
         jButton1.setBorderPainted(true);
-        jButton1.setFill(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setBorderRadius(20);
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setBorderWidth(4);
+        jButton1.setFill(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                growButton(jButton1);
+                GlobalEvents.growButton(evt);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                shrinkButton(jButton1);
+                GlobalEvents.shrinkButton(evt);
             }
-
         });
-
-        jButton1.setBorderWidth(4);
-        jButton1.setBorderRadius(20);
 
         javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(imagePanel2);
         imagePanel2.setLayout(imagePanel2Layout);
         imagePanel2Layout.setHorizontalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imagePanel2Layout.createSequentialGroup()
+                                .addGroup(imagePanel2Layout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                .addGap(61, 61, 61)
+                                                .addComponent(roundedButton9, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(287, 287, 287)
+                                                .addComponent(roundedButton10, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(277, 277, 277)
+                                                .addComponent(roundedButton11, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(87, 87, 87)
+                                                .addComponent(roundedButton12, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                .addGap(96, 96, 96)
+                                                .addComponent(roundedButton13, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(roundedButton14, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228,
+                                        Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(26, 26, 26))
                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(roundedButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(1200, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imagePanel2Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(roundedButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)
+                                .addComponent(roundedButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(imagePanel2Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                imagePanel2Layout.createSequentialGroup()
-                                                        .addComponent(jButton2)
-                                                        .addGap(26, 26, 26))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                imagePanel2Layout.createSequentialGroup()
-                                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(406, 406, 406)))));
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(stoveProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(407, 407, 407)));
         imagePanel2Layout.setVerticalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(imagePanel2Layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(369, 369, 369)
+                                .addGroup(imagePanel2Layout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                .addGap(121, 121, 121)
+                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                .addGroup(imagePanel2Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                                .addGap(109, 109, 109)
+                                                                .addComponent(roundedButton9,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                                .addGap(72, 72, 72)
+                                                                .addComponent(roundedButton10,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                                .addGap(64, 64, 64)
+                                                                .addGroup(imagePanel2Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(roundedButton11,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                63,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(roundedButton12,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                63,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGroup(imagePanel2Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                                .addGap(107, 107, 107)
+                                                                .addComponent(jButton1,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 47,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(stoveProgressBar))
+                                                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                                                .addGap(47, 47, 47)
+                                                                .addGroup(imagePanel2Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(roundedButton1,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                63,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(roundedButton7,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                63,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(roundedButton8,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                63,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGap(293, 293, 293)
+                                .addGroup(imagePanel2Layout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(roundedButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(roundedButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
                                 .addComponent(roundedButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(21, Short.MAX_VALUE)));
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,21 +295,7 @@ public class GUIContainer extends javax.swing.JFrame {
                                 .addContainerGap(197, Short.MAX_VALUE)));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
-
-    private void growButton(JButton button) {
-        int sizeIncrement = 4;
-        button.setSize(
-                new Dimension(button.getWidth() + sizeIncrement, button.getHeight() + sizeIncrement));
-        button.setLocation(button.getLocation().x - sizeIncrement / 2, button.getLocation().y - sizeIncrement / 2);
-    }
-
-    private void shrinkButton(JButton button) {
-        int sizeIncrement = 4;
-        button.setSize(
-                new Dimension(button.getWidth() - sizeIncrement, button.getHeight() - sizeIncrement));
-        button.setLocation(button.getLocation().x + sizeIncrement / 2, button.getLocation().y + sizeIncrement / 2);
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * @param args the command line arguments
@@ -218,6 +331,17 @@ public class GUIContainer extends javax.swing.JFrame {
     private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton1;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton10;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton11;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton12;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton13;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton14;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton roundedButton3;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton7;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton8;
+    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton9;
+    private javax.swing.JProgressBar stoveProgressBar;
+    private TableButton[] tables;
     // End of variables declaration//GEN-END:variables
 }
