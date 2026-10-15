@@ -3,9 +3,7 @@ package com.mycompany.restaurantsimulator.view;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
-
-import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
-import com.mycompany.restaurantsimulator.view.components.OrderContainer;
+import com.mycompany.restaurantsimulator.view.components.RoundedButton;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
@@ -21,10 +19,6 @@ public class GUIContainer extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger
             .getLogger(GUIContainer.class.getName());
-    private ImagePanel imagePanel2;
-    private JButton jButton1;
-    private JButton jButton2;
-    private RoundedButton roundedButton3;
 
     /**
      * Creates new form GUIContainer
@@ -94,10 +88,6 @@ public class GUIContainer extends javax.swing.JFrame {
         roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
         roundedButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                toggleOrderTableVisibility(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 growButton(roundedButton3);
             }
@@ -111,10 +101,6 @@ public class GUIContainer extends javax.swing.JFrame {
         jButton1.setFill(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectFoodForStove(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 growButton(jButton1);
             }
