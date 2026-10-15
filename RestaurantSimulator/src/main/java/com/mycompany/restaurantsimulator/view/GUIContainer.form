@@ -62,36 +62,97 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="61" pref="61" max="-2" attributes="0"/>
+                          <Component id="roundedButton9" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                          <Component id="roundedButton10" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                          <Component id="roundedButton11" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="roundedButton12" min="-2" pref="72" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                          <Component id="roundedButton13" min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="roundedButton14" min="-2" pref="74" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="228" max="32767" attributes="0"/>
+                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="roundedButton3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1200" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="145" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="406" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="roundedButton8" min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="roundedButton7" min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                  <Component id="roundedButton1" min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="145" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="105" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="47" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="105" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="roundedButton9" min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="roundedButton10" min="-2" pref="63" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="roundedButton11" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="roundedButton12" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" pref="47" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="roundedButton1" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="roundedButton7" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="roundedButton8" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="roundedButton13" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="roundedButton14" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="1696" max="-2" attributes="0"/>
                   <Component id="roundedButton3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -108,6 +169,10 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
         </Component>
         <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton3">
           <Properties>
@@ -126,7 +191,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="toggleOrderTableVisibility"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
@@ -138,7 +203,143 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="selectFoodForStove"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton1">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton7">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton8">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton9">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton10">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton11">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton12">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton13">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
+          </Events>
+        </Component>
+        <Component class="com.mycompany.restaurantsimulator.view.components.RoundedButton" name="roundedButton14">
+          <Properties>
+            <Property name="borderRadius" type="int" value="20"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="roundedButton1"/>
+            <Property name="borderWidth" type="int" value="4"/>
+            <Property name="fill" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="growButton"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shrinkButton"/>
           </Events>
         </Component>
       </SubComponents>
