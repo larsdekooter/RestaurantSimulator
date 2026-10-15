@@ -1,5 +1,7 @@
 package com.mycompany.restaurantsimulator.models;
 
+import com.mycompany.restaurantsimulator.models.customers.Customer;
+
 public class Restaurant {
     private String name;
     private Menu menu;
@@ -7,7 +9,7 @@ public class Restaurant {
     private Customer[] customers;
     private Stove[] stove;
 
-    public Restaurant(String name, int numberOfTables, int numberOfStoves){
+    public Restaurant(String name, int numberOfTables, int numberOfStoves) {
         this.name = name;
         this.tables = new Table[numberOfTables];
         this.customers = new Customer[1000];

@@ -1,5 +1,7 @@
 package com.mycompany.restaurantsimulator.models;
 
+import com.mycompany.restaurantsimulator.models.menuItems.Food;
+
 public class Stove {
     public int id;
     public Food cooking; //Can be null

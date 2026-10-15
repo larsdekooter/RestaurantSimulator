@@ -1,8 +1,11 @@
-package com.mycompany.restaurantsimulator.models;
+package com.mycompany.restaurantsimulator.models.customers;
 
+import com.mycompany.restaurantsimulator.models.Menu;
+import com.mycompany.restaurantsimulator.models.Order;
+import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import java.util.Random;
 
-public class Customer {
+public abstract class Customer {
     public int id;
     public int partySize;
     public Order order;
@@ -22,14 +25,17 @@ public class Customer {
         return order;
     }
 
-    private Food[] makeNewOrder(Menu menu) {
-        Food[] newOrder = new Food[partySize];
+    public MenuItem[] makeNewOrder(Menu menu) {
+        MenuItem[] newOrder = new MenuItem[partySize * 2];
 
         Random rand = new Random();
         for (int i = 0; i < partySize; i++) {
-            newOrder[i] = menu.menu[rand.nextInt(menu.menu.length)];
+            newOrder[i] = menu.foods[rand.nextInt(menu.foods.length)];
+            newOrder[i + partySize] = menu.drinks[rand.nextInt(menu.drinks.length)];
         }
 
         return newOrder;
     }
+
+    public abstract double calculateCheck(Order order);
 }

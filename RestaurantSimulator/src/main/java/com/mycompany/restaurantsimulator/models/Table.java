@@ -1,5 +1,7 @@
 package com.mycompany.restaurantsimulator.models;
 
+import com.mycompany.restaurantsimulator.models.customers.Customer;
+
 public class Table {
 
     public int id;
