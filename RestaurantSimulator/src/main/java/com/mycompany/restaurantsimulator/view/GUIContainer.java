@@ -1,13 +1,16 @@
 package com.mycompany.restaurantsimulator.view;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
+import javax.swing.JLayeredPane;
 import javax.swing.JProgressBar;
 
 import com.mycompany.restaurantsimulator.view.components.ImagePanel;
 import com.mycompany.restaurantsimulator.view.components.RoundedButton;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
+import com.mycompany.restaurantsimulator.view.ui.ProgressCircleUI;
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
-import com.mycompany.restaurantsimulator.models.Table;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
@@ -20,9 +23,8 @@ import com.mycompany.restaurantsimulator.models.Table;
  * @author lars
  */
 public class GUIContainer extends javax.swing.JFrame {
-
-    private static final java.util.logging.Logger logger = java.util.logging.Logger
-            .getLogger(GUIContainer.class.getName());
+    private int stove1Progress = 0;
+    private int stove2progress = 0;
 
     /**
      * Creates new form GUIContainer
@@ -36,19 +38,57 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     public JButton getFoodSelectionButton() {
-        return jButton1;
+        return stove1;
     }
 
     public RoundedButton getOrderButton() {
         return roundedButton3;
     }
 
-    public JProgressBar getStoveProgressBar() {
-        return this.stoveProgressBar;
+    public JProgressBar getStove1ProgressBar() {
+        return this.stove1ProgressBar;
     }
 
     public TableButton[] getTables() {
         return this.tables;
+    }
+
+    /**
+     * Set the progress of the rectangular stove
+     * 
+     * @param progress Between 0-100
+     */
+    public void setStove1Progress(int progress) {
+        this.stove1ProgressBar.setValue(progress);
+        this.stove1Progress = progress;
+    }
+
+    /**
+     * Set the progress of the circular stove
+     * 
+     * @param progress Between 0-100
+     */
+    public void setStove2Progress(int progress) {
+        this.stove2ProgressBar.setValue(progress);
+        this.stove2progress = progress;
+    }
+
+    /**
+     * Get the progress of the rectangular stove
+     * 
+     * @return The progress, between 0-100
+     */
+    public int getStove1Progress() {
+        return this.stove1Progress;
+    }
+
+    /**
+     * Get the progress of the circular stove
+     * 
+     * @return The progress, between 0-100
+     */
+    public int getStove2Progress() {
+        return this.stove2progress;
     }
 
     /**
@@ -78,21 +118,24 @@ public class GUIContainer extends javax.swing.JFrame {
         imagePanel2 = new ImagePanel();
         jButton2 = new javax.swing.JButton();
         roundedButton3 = new RoundedButton();
-        jButton1 = new RoundedButton();
-        roundedButton1 = new TableButton(1);
-        roundedButton7 = new TableButton(2);
-        roundedButton8 = new TableButton(3);
-        roundedButton9 = new TableButton(4);
-        roundedButton10 = new TableButton(5);
-        roundedButton11 = new TableButton(6);
-        roundedButton12 = new TableButton(7);
-        roundedButton13 = new TableButton(8);
-        roundedButton14 = new TableButton(9);
-        stoveProgressBar = new JProgressBar();
+        stove1 = new RoundedButton();
+        table1 = new TableButton(1);
+        table2 = new TableButton(2);
+        table3 = new TableButton(3);
+        table4 = new TableButton(4);
+        table5 = new TableButton(5);
+        table6 = new TableButton(6);
+        table7 = new TableButton(7);
+        table8 = new TableButton(8);
+        table9 = new TableButton(9);
+        stove2 = new RoundedButton();
+        stove1ProgressBar = new JProgressBar();
+        stove2ProgressBar = new JProgressBar();
+        stove2Pane = new JLayeredPane();
 
-        tables = new TableButton[] { roundedButton1, roundedButton7, roundedButton8,
-                roundedButton9, roundedButton10,
-                roundedButton11, roundedButton12, roundedButton13, roundedButton14 };
+        tables = new TableButton[] { table1, table2, table3,
+                table4, table5,
+                table6, table7, table8, table9 };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 850));
@@ -135,14 +178,14 @@ public class GUIContainer extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBorderPainted(true);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setBorderRadius(20);
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setBorderWidth(4);
-        jButton1.setFill(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        stove1.setBorderPainted(true);
+        stove1.setContentAreaFilled(false);
+        stove1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        stove1.setBorderRadius(20);
+        stove1.setForeground(new java.awt.Color(0, 0, 0));
+        stove1.setBorderWidth(4);
+        stove1.setFill(false);
+        stove1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 GlobalEvents.growButton(evt);
             }
@@ -151,6 +194,42 @@ public class GUIContainer extends javax.swing.JFrame {
                 GlobalEvents.shrinkButton(evt);
             }
         });
+
+        stove2.setBorderPainted(true);
+        stove2.setContentAreaFilled(false);
+        stove2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        stove2.setBorderRadius(500);
+        stove2.setForeground(new java.awt.Color(255, 0, 0));
+        stove2.setBorderWidth(4);
+        stove2.setFill(false);
+        stove2.setPreferredSize(new Dimension(140, 140));
+        stove2.setSize(new Dimension(140, 140));
+        stove2.setBounds(5, 5, 140, 140);
+        stove2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GlobalEvents.growButton(evt);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GlobalEvents.shrinkButton(evt);
+            }
+        });
+        stove2.setOpaque(false);
+
+        stove2ProgressBar.setUI(new ProgressCircleUI());
+        stove2ProgressBar.setSize(150, 150);
+        stove2ProgressBar.setValue(100);
+        stove2ProgressBar.setMaximum(100);
+        stove2ProgressBar.setForeground(new java.awt.Color(0, 255, 0));
+        stove2ProgressBar.setBorderPainted(false);
+        // stove2ProgressBar.setBounds(0, 5, 140, 140);
+
+        stove2Pane.setPreferredSize(new Dimension(160, 160));
+        stove2Pane.setOpaque(false);
+        stove2Pane.setBorder(null);
+        // stove2Pane.setoutline
+        stove2Pane.add(stove2ProgressBar, 2, 0);
+        stove2Pane.add(stove2, 1, 0);
 
         javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(imagePanel2);
         imagePanel2.setLayout(imagePanel2Layout);
@@ -161,23 +240,23 @@ public class GUIContainer extends javax.swing.JFrame {
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                 .addGap(61, 61, 61)
-                                                .addComponent(roundedButton9, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table4, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(287, 287, 287)
-                                                .addComponent(roundedButton10, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table5, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(277, 277, 277)
-                                                .addComponent(roundedButton11, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table6, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(87, 87, 87)
-                                                .addComponent(roundedButton12, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table7, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                 .addGap(96, 96, 96)
-                                                .addComponent(roundedButton13, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table8, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(roundedButton14, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(table9, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228,
                                         Short.MAX_VALUE)
@@ -189,23 +268,30 @@ public class GUIContainer extends javax.swing.JFrame {
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, imagePanel2Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(roundedButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                .addGap(335, 335, 335)
+                                .addComponent(table3, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108)
-                                .addComponent(roundedButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                .addGap(105, 105, 105)
+                                .addComponent(table2, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
-                                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                .addGap(80, 80, 80)
+
+                                .addComponent(table1, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(imagePanel2Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
+                                        .addComponent(stove1, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(stoveProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
+                                        .addComponent(stove1ProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 145,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(407, 407, 407)));
+                                .addGap(407, 407, 407))
+                        .addGroup(imagePanel2Layout.createSequentialGroup()
+                                // .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(587, 587, 587)
+                                .addComponent(stove2Pane, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
         imagePanel2Layout.setVerticalGroup(
                 imagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(imagePanel2Layout.createSequentialGroup()
@@ -221,23 +307,23 @@ public class GUIContainer extends javax.swing.JFrame {
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                                 .addGap(109, 109, 109)
-                                                                .addComponent(roundedButton9,
+                                                                .addComponent(table4,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE, 63,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                                 .addGap(72, 72, 72)
-                                                                .addComponent(roundedButton10,
+                                                                .addComponent(table5,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE, 63,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                                 .addGap(64, 64, 64)
                                                                 .addGroup(imagePanel2Layout.createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(roundedButton11,
+                                                                        .addComponent(table6,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 63,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(roundedButton12,
+                                                                        .addComponent(table7,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 63,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -245,34 +331,37 @@ public class GUIContainer extends javax.swing.JFrame {
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                                 .addGap(107, 107, 107)
-                                                                .addComponent(jButton1,
+                                                                .addComponent(stove1,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE, 47,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(stoveProgressBar))
+                                                                .addComponent(stove1ProgressBar))
                                                         .addGroup(imagePanel2Layout.createSequentialGroup()
                                                                 .addGap(47, 47, 47)
                                                                 .addGroup(imagePanel2Layout.createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(roundedButton1,
+                                                                        .addComponent(table1,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 63,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(roundedButton7,
+                                                                        .addComponent(table2,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 63,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(roundedButton8,
+                                                                        .addComponent(table3,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 63,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                .addGap(293, 293, 293)
+                                .addGap(120, 120, 120)
+                                .addComponent(stove2Pane, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
                                 .addGroup(imagePanel2Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(roundedButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                        .addComponent(table8, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(roundedButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
+                                        .addComponent(table9, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
+                                .addGap(10, 10, 10)
                                 .addComponent(roundedButton3, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
@@ -301,47 +390,27 @@ public class GUIContainer extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-                    .getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new GUIContainer().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
-    private com.mycompany.restaurantsimulator.view.components.RoundedButton jButton1;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton stove1;
     private javax.swing.JButton jButton2;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton1;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton10;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton11;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton12;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton13;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton14;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table1;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table5;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table6;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table7;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table8;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table9;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton roundedButton3;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton7;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton8;
-    private com.mycompany.restaurantsimulator.view.components.TableButton roundedButton9;
-    private javax.swing.JProgressBar stoveProgressBar;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table2;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table3;
+    private com.mycompany.restaurantsimulator.view.components.TableButton table4;
+    private javax.swing.JProgressBar stove1ProgressBar;
     private TableButton[] tables;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton stove2;
+    private javax.swing.JProgressBar stove2ProgressBar;
+    private javax.swing.JLayeredPane stove2Pane;
     // End of variables declaration//GEN-END:variables
 }

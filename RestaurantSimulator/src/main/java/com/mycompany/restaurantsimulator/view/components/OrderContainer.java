@@ -20,13 +20,15 @@ public class OrderContainer extends javax.swing.JFrame {
             .getLogger(OrderContainer.class.getName());
 
     private Map<Integer, ArrayList<String>> orders = new HashMap<Integer, ArrayList<String>>();
-    private int nTables = 12;
-    private String[] tableNames = new String[nTables];
+    private int nTables;
+    private String[] tableNames;
 
     /**
      * Creates new form OrderContainer
      */
-    public OrderContainer() {
+    public OrderContainer(int nTables) {
+        this.nTables = nTables;
+        this.tableNames = new String[this.nTables];
         for (int i = 0; i < nTables; i++) {
             orders.put(i, new ArrayList<String>());
             tableNames[i] = "Table " + (i + 1);
@@ -132,7 +134,7 @@ public class OrderContainer extends javax.swing.JFrame {
         // </editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new OrderContainer().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new OrderContainer(1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

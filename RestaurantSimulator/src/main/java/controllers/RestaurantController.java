@@ -19,7 +19,7 @@ public class RestaurantController {
         this.model = model;
         this.view = view;
         this.foodSelectionContainer = new FoodSelectionContainer(model.getMenu());
-        this.orderContainer = new OrderContainer();
+        this.orderContainer = new OrderContainer(model.getTables().length);
         this.customerContainer = new CustomerContainer(view);
 
         view.getFoodSelectionButton()
@@ -38,8 +38,12 @@ public class RestaurantController {
         }
     }
 
-    public void setStoveProgress(int progress) {
-        view.getStoveProgressBar().setValue(progress);
+    public void setRectangularStoveProgress(int progress) {
+        view.setStove1Progress(progress);
+    }
+
+    public void setCircularStoveProgress(int progress) {
+        view.setStove2Progress(progress);
     }
 
 }
