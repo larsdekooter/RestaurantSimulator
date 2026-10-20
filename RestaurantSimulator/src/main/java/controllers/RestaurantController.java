@@ -1,6 +1,7 @@
 package controllers;
 
 import com.mycompany.restaurantsimulator.models.Restaurant;
+import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.view.GUIContainer;
 import com.mycompany.restaurantsimulator.view.components.CustomerContainer;
 import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
@@ -22,8 +23,14 @@ public class RestaurantController {
         this.orderContainer = new OrderContainer(model.getTables().length);
         this.customerContainer = new CustomerContainer(view);
 
-        view.getFoodSelectionButton()
-                .addActionListener((e) -> foodSelectionContainer.setVisible(true));
+        view.getStove1().addActionListener((e) -> {
+            foodSelectionContainer.setVisible(true);
+            foodSelectionContainer.setFoodType(FoodType.Stove);
+        });
+        view.getStove2().addActionListener((e) -> {
+            foodSelectionContainer.setVisible(true);
+            foodSelectionContainer.setFoodType(FoodType.Furnace);
+        });
 
         view.getOrderButton()
                 .addActionListener((e) -> orderContainer.setVisible(true));
@@ -34,6 +41,7 @@ public class RestaurantController {
                 customerContainer.setTitle("Table " + table.getTableNumber());
                 customerContainer.getLabel().setText("Table " + table.getTableNumber());
                 view.setEnabled(false);
+                customerContainer.setLocationRelativeTo(table);
             });
         }
     }

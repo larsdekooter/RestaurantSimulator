@@ -15,21 +15,21 @@ import javax.swing.plaf.basic.BasicProgressBarUI;
 
 public class ProgressCircleUI extends BasicProgressBarUI {
     private static int BAR_WIDTH = 5;
-
+    // Mutliplier to calculate the diameter for the inner circles diameter.
     private float multiplier = 0.9f;
+
     private int diameter;
     private double xCenter;
     private double yCenter;
     private double outerRadius;
     private double innerRadius;
 
-    public void setBarWidth() {
+    public void calculateMultiplier() {
         int diameter = Math.min(progressBar.getWidth(), progressBar.getHeight());
         if (diameter == 0)
             return;
         float innerCircleDiameter = diameter - BAR_WIDTH;
         multiplier = innerCircleDiameter / diameter;
-
     }
 
     private void calculateCircleValues(Insets insets, int barRecHeight, int barRecWidth) {
@@ -61,7 +61,7 @@ public class ProgressCircleUI extends BasicProgressBarUI {
         g2.setPaint(progressBar.getForeground());
 
         double degrees = 360 * progressBar.getPercentComplete();
-        setBarWidth();
+        calculateMultiplier();
         calculateCircleValues(b, barRecHeight, barRecWidth);
         Shape inner = new Ellipse2D.Double(xCenter - innerRadius, yCenter - innerRadius, innerRadius * 2,
                 innerRadius * 2);
@@ -69,6 +69,8 @@ public class ProgressCircleUI extends BasicProgressBarUI {
                 degrees, Arc2D.PIE);
 
         Area area = new Area(outer);
+        // This area is now the circle, with a width of BAR_WIDTH and a transparent
+        // center.
         area.subtract(new Area(inner));
 
         g2.fill(area);

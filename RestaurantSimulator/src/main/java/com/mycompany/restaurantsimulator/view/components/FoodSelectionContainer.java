@@ -8,8 +8,11 @@
 package com.mycompany.restaurantsimulator.view.components;
 
 import com.mycompany.restaurantsimulator.models.Menu;
+import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import java.awt.Dimension;
+import java.util.ArrayList;
+
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
@@ -26,18 +29,38 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger
             .getLogger(FoodSelectionContainer.class.getName());
 
+    private ArrayList<Food> menuItems = new ArrayList<>();
+
     /**
      * Creates new form FoodSelection
      */
     public FoodSelectionContainer(Menu menu) {
         this.menu = menu;
         initComponents();
-        updateList(menu);
+        for (Food food : menu.foods) {
+            menuItems.add(food);
+        }
+        updateList(menuItems);
     }
 
     public FoodSelectionContainer() {
         this.menu = new Menu();
         initComponents();
+    }
+
+    /**
+     * Repopulates the list
+     * 
+     * @param type
+     */
+    public void setFoodType(FoodType type) {
+        menuItems.clear();
+        for (Food item : this.menu.foods) {
+            if (item.type == type) {
+                menuItems.add(item);
+            }
+        }
+        updateList(menuItems);
     }
 
     /**
@@ -71,7 +94,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
 
             }
         });
-        updateList(menu);
+        updateList(menuItems);
 
         DefaultListCellRenderer renderer = (DefaultListCellRenderer) jList1.getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,10 +118,10 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
-    private void updateList(Menu menu) {
+    private void updateList(ArrayList<Food> menuItems) {
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
         model.clear();
-        for (Food food : menu.foods) {
+        for (Food food : menuItems) {
             model.addElement(food.name);
 
         }
@@ -118,8 +141,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info
-                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;

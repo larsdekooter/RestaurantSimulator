@@ -17,7 +17,7 @@ import java.beans.BeanProperty;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
-import com.mycompany.restaurantsimulator.view.enums.CursorType;
+import com.mycompany.restaurantsimulator.models.enums.CursorType;
 
 /**
  * https://stackoverflow.com/questions/8515601/java-swing-rounded-border-for-jtextfield
