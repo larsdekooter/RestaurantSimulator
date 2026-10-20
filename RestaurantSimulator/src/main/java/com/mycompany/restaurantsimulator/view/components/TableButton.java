@@ -2,6 +2,10 @@ package com.mycompany.restaurantsimulator.view.components;
 
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
 
+/**
+ * The class for the tables.
+ * TableButton
+ */
 public class TableButton extends RoundedButton {
     private int tableNumber;
 

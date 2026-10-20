@@ -1,4 +1,6 @@
 {
-    "maven.view": "hierarchical",
-    "java.configuration.updateBuildConfiguration": "automatic"
+  "maven.view": "hierarchical",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.checkstyle.configuration": "${workspaceFolder}\\2IP90_checks.xml",
+  "java.checkstyle.version": "14.3.0"
 }
