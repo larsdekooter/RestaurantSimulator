@@ -39,5 +39,5 @@ public abstract class Customer {
         return newOrder;
     }
 
-    public abstract double calculateCheck(Order order);
+    public abstract double calculateCheck();
 }

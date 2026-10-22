@@ -40,13 +40,12 @@ public class RestaurantController {
         });
 
         view.getNewCustomersButton().addActionListener(this::seatCustomer);
+
         view.getOrderButton()
                 .addActionListener((e) -> orderContainer.setVisible(true));
 
         for (TableButton table : view.getTables()) {
-            table.addActionListener(e -> {
-                tableClicked(e, table);
-            });
+            table.addActionListener(e -> tableClicked(e, table));
         }
     }
 
@@ -67,11 +66,7 @@ public class RestaurantController {
 
     private void tableClicked(ActionEvent e, TableButton table) {
         if (seatingCustomer == -1) {
-            customerContainer.setVisible(true);
-            customerContainer.setTitle("Table " + table.getTableNumber());
-            customerContainer.getLabel().setText("Table " + table.getTableNumber());
-            view.setEnabled(false);
-            customerContainer.setLocationRelativeTo(table);
+            setupTableView(table);
         } else {
             boolean seated = model.seatCustomer(seatingCustomer, table.getTableNumber());
             seatingCustomer = -1;
@@ -84,6 +79,16 @@ public class RestaurantController {
                 view.returnTableToNormal(tableButton.getTableNumber());
             }
         }
+    }
+
+    private void setupTableView(TableButton table) {
+        Table clickedTable = model.getTable(table.getTableNumber());
+        customerContainer.openTableView(clickedTable);
+        view.setEnabled(false);
+        customerContainer.setLocationRelativeTo(table);
+
+        customerContainer.getServeCheckButton()
+                .addActionListener((e) -> model.settleTable(table.getTableNumber()));
     }
 
     public void setRectangularStoveProgress(int progress) {
