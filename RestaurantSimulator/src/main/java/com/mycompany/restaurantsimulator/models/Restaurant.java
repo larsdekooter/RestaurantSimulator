@@ -14,14 +14,16 @@ public class Restaurant {
     private Customer[] customers;
     private Stove[] stove;
     private Map<Integer, Order> orders;
+    private double profit;
 
     public Restaurant(String name, int numberOfTables, int numberOfStoves) {
         this.name = name;
-        this.tables = new Table[numberOfTables];
+        this.tables = new Table[numberOfTables + 1];
         this.customers = new Customer[1000];
         this.stove = new Stove[numberOfStoves];
         this.menu = new Menu();
         this.orders = new HashMap<Integer, Order>();
+        this.profit = 0.0;
 
         createTables();
     }
@@ -58,6 +60,15 @@ public class Restaurant {
 
     public Customer[] getCustomers() {
         return customers;
+    }
+
+    public void settleTable(int tableId){
+        Table table  = getTable(tableId);
+        profit += table.customer.calculateCheck();
+
+        Customer customer = table.customer;
+        customers[customer.id] = null;
+        table.customer = null;
     }
 
     public boolean addCustomer(Customer customer) {
@@ -113,5 +124,8 @@ public class Restaurant {
 
     public void removeOrder(int tableNumber) {
         this.orders.put(tableNumber, null);
+    }
+    public Table getTable(int tableNumber) {
+        return tables[tableNumber - 1];
     }
 }
