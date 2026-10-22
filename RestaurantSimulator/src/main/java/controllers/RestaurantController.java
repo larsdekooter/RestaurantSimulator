@@ -1,6 +1,5 @@
 package controllers;
 
-import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
@@ -45,8 +44,6 @@ public class RestaurantController {
         view.getOrderButton()
                 .addActionListener((e) -> orderContainer.setVisible(true));
 
-        customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
-
         for (TableButton table : view.getTables()) {
             table.addActionListener(e -> tableClicked(e, table));
         }
@@ -68,35 +65,19 @@ public class RestaurantController {
         }
     }
 
-    private void retrieveOrder(ActionEvent e) {
-        int tableNumber = Integer.parseInt(customerContainer.getTitle().replaceAll("Table ", ""));
-        Table table = null;
-        for (Table loopTable : model.getTables()) {
-            if (loopTable.id == tableNumber) {
-                table = loopTable;
-            }
-        }
-        if (table == null)
-            throw new Error("No table could be found!");
-
-        model.addOrder(tableNumber, table.customer.getOrder(new Menu()));
-        this.orderContainer.setOrders(model.getOrders());
-        customerContainer.hideDialog();
-    }
-
-    private void tableClicked(ActionEvent e, TableButton tableButton) {
+    private void tableClicked(ActionEvent e, TableButton table) {
         if (seatingCustomer == -1) {
             setupTableView(table);
         } else {
-            boolean seated = model.seatCustomer(seatingCustomer, tableButton.getTableNumber());
+            boolean seated = model.seatCustomer(seatingCustomer, table.getTableNumber());
             seatingCustomer = -1;
 
             if (!seated) {
                 Toolkit.getDefaultToolkit().beep();
             }
 
-            for (TableButton tableButtonLoop : view.getTables()) {
-                view.returnTableToNormal(tableButtonLoop.getTableNumber());
+            for (TableButton tableButton : view.getTables()) {
+                view.returnTableToNormal(tableButton.getTableNumber());
             }
         }
     }
