@@ -2,7 +2,10 @@ package com.mycompany.restaurantsimulator.models;
 
 import com.mycompany.restaurantsimulator.models.customers.Customer;
 import com.mycompany.restaurantsimulator.models.stoves.Stove;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Restaurant {
     private String name;
@@ -10,6 +13,7 @@ public class Restaurant {
     private Table[] tables;
     private Customer[] customers;
     private Stove[] stove;
+    private Map<Integer, Order> orders;
     private double profit;
 
     public Restaurant(String name, int numberOfTables, int numberOfStoves) {
@@ -18,6 +22,7 @@ public class Restaurant {
         this.customers = new Customer[1000];
         this.stove = new Stove[numberOfStoves];
         this.menu = new Menu();
+        this.orders = new HashMap<Integer, Order>();
         this.profit = 0.0;
 
         createTables();
@@ -57,8 +62,8 @@ public class Restaurant {
         return customers;
     }
 
-    public void settleTable(int tableId){
-        Table table  = getTable(tableId);
+    public void settleTable(int tableId) {
+        Table table = getTable(tableId);
         profit += table.customer.calculateCheck();
 
         Customer customer = table.customer;
@@ -88,23 +93,37 @@ public class Restaurant {
 
     public boolean seatCustomer(int customerId, int tableId) {
         Customer customer = Arrays.stream(customers)
-                .filter(c -> c.id ==  customerId)
+                .filter(c -> c.id == customerId)
                 .findFirst().orElse(null);
 
         Table table = Arrays.stream(tables)
                 .filter(t -> t.id == tableId)
                 .findFirst().orElse(null);
 
-        if (customer == null || table == null) return false;
+        if (customer == null || table == null)
+            return false;
 
         return table.seatCustomers(customer);
     }
 
     public int nextCustomerId() {
         for (int i = 0; i < customers.length; i++) {
-            if (customers[i] == null) return i;
+            if (customers[i] == null)
+                return i;
         }
         return -1;
+    }
+
+    public Map<Integer, Order> getOrders() {
+        return this.orders;
+    }
+
+    public void addOrder(int tableNumber, Order order) {
+        this.orders.put(tableNumber, order);
+    }
+
+    public void removeOrder(int tableNumber) {
+        this.orders.put(tableNumber, null);
     }
 
     public Table getTable(int tableNumber) {

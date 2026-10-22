@@ -10,6 +10,9 @@ import java.util.Map;
 
 import javax.swing.DefaultListModel;
 
+import com.mycompany.restaurantsimulator.models.Order;
+import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
+
 /**
  *
  * @author lars
@@ -19,7 +22,7 @@ public class OrderContainer extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger
             .getLogger(OrderContainer.class.getName());
 
-    private Map<Integer, ArrayList<String>> orders = new HashMap<Integer, ArrayList<String>>();
+    private Map<Integer, Order> orders = new HashMap<>();
     private int nTables;
     private String[] tableNames;
 
@@ -30,11 +33,16 @@ public class OrderContainer extends javax.swing.JFrame {
         this.nTables = nTables;
         this.tableNames = new String[this.nTables];
         for (int i = 0; i < nTables; i++) {
-            orders.put(i, new ArrayList<String>());
+            orders.put(i, null);
             tableNames[i] = "Table " + (i + 1);
         }
 
         initComponents();
+    }
+
+    public void setOrders(Map<Integer, Order> orders) {
+        this.orders = orders;
+        updateTableSelection(null);
     }
 
     /**
@@ -97,13 +105,15 @@ public class OrderContainer extends javax.swing.JFrame {
     }// GEN-LAST:event_orderCloses
 
     private void updateTableSelection(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateTableSelection
-        int selectedIndex = jComboBox2.getSelectedIndex();
+        int selectedIndex = jComboBox2.getSelectedIndex() + 1;
         if (selectedIndex != -1 && orders.containsKey(selectedIndex)) {
             DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
             model.clear();
-            ArrayList<String> newStrings = orders.get(selectedIndex);
-            for (String item : newStrings) {
-                model.addElement(item);
+            Order order = orders.get(selectedIndex);
+            if (order == null)
+                return;
+            for (MenuItem item : order.items) {
+                model.addElement(item.toString());
             }
         }
     }// GEN-LAST:event_updateTableSelection
