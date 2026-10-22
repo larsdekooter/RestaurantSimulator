@@ -10,11 +10,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
+import com.mycompany.restaurantsimulator.models.Table;
 
 /**
  *
@@ -23,6 +23,7 @@ import com.mycompany.restaurantsimulator.models.GlobalEvents;
 public class CustomerContainer extends javax.swing.JDialog implements WindowListener {
 
     private int tableNumber;
+    private Table table;
     private JFrame frame;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger
@@ -39,8 +40,20 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
         addWindowListener(this);
     }
 
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
     public JLabel getLabel() {
         return this.jLabel1;
+    }
+
+    public RoundedButton getServeCheckButton() {
+        return this.serveCheckButton;
+    }
+
+    public RoundedButton getServeFoodButton() {
+        return this.serveFoodButton;
     }
 
     /**
@@ -238,5 +251,13 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
 
     @Override
     public void windowDeactivated(WindowEvent e) {
+    }
+
+    public void openTableView(Table table) {
+        this.table = table;
+        setVisible(true);
+        setTitle("Table " + table.id);
+        getLabel().setText("Table " + table.id);
+        setTableNumber(table.id);
     }
 }
