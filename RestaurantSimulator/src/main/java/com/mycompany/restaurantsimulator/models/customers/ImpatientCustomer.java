@@ -1,7 +1,5 @@
 package com.mycompany.restaurantsimulator.models.customers;
 
-import com.mycompany.restaurantsimulator.models.Order;
-
 ///Impatient customers give very little tip
 /// if it took too long they won't give any tip at all
 public class ImpatientCustomer extends Customer {
@@ -10,7 +8,7 @@ public class ImpatientCustomer extends Customer {
     }
 
     @Override
-    public double calculateCheck(Order order) {
+    public double calculateCheck() {
         return order.calculatePrice();
     }
 }

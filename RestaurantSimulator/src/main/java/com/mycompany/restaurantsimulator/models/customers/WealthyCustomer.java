@@ -1,7 +1,6 @@
 package com.mycompany.restaurantsimulator.models.customers;
 
 import com.mycompany.restaurantsimulator.models.Menu;
-import com.mycompany.restaurantsimulator.models.Order;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -29,7 +28,7 @@ public class WealthyCustomer extends Customer {
     }
 
     @Override
-    public double calculateCheck(Order order) {
+    public double calculateCheck() {
         return order.calculatePrice() * 2;
     }
 }
