@@ -6,7 +6,7 @@ public class Table {
 
     public int id;
     public int seats;
-    public Customer customer; //Can be null
+    public Customer customer; // Can be null
 
     public Table(int id, int seats) {
         this.id = id;
@@ -20,4 +20,18 @@ public class Table {
         this.customer = customer;
         return true;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Table ");
+        builder.append(id);
+        builder.append(" Number of seats: ");
+        builder.append(seats);
+        builder.append(" Customer: ");
+        builder.append(customer);
+
+        return builder.toString();
+    }
+
 }

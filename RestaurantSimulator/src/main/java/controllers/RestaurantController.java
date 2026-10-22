@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
@@ -43,6 +44,8 @@ public class RestaurantController {
         view.getOrderButton()
                 .addActionListener((e) -> orderContainer.setVisible(true));
 
+        customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
+
         for (TableButton table : view.getTables()) {
             table.addActionListener(e -> {
                 tableClicked(e, table);
@@ -53,7 +56,8 @@ public class RestaurantController {
     private void seatCustomer(ActionEvent e) {
         Customer customer = new WealthyCustomer(model.nextCustomerId(), 6);
         boolean added = model.addCustomer(customer);
-        if (!added) return;
+        if (!added)
+            return;
         seatingCustomer = customer.id;
 
         for (Table table : model.getTables()) {
@@ -65,23 +69,49 @@ public class RestaurantController {
         }
     }
 
-    private void tableClicked(ActionEvent e, TableButton table) {
+    private void retrieveOrder(ActionEvent e) {
+        int tableNumber = Integer.parseInt(customerContainer.getTitle().replaceAll("Table ", ""));
+        Table table = null;
+        for (Table loopTable : model.getTables()) {
+            if (loopTable.id == tableNumber) {
+                table = loopTable;
+            }
+        }
+        if (table == null)
+            throw new Error("No table could be found!");
+
+        model.addOrder(tableNumber, table.customer.getOrder(new Menu()));
+        this.orderContainer.setOrders(model.getOrders());
+        customerContainer.hideDialog();
+    }
+
+    private void tableClicked(ActionEvent e, TableButton tableButton) {
         if (seatingCustomer == -1) {
+            Table table = null;
+            for (Table tableLoop : model.getTables()) {
+                if (tableLoop.id == tableButton.getTableNumber()) {
+                    table = tableLoop;
+                }
+            }
+            if (table == null)
+                throw new Error("No Table found");
+            if (table.customer == null)
+                return;
             customerContainer.setVisible(true);
-            customerContainer.setTitle("Table " + table.getTableNumber());
-            customerContainer.getLabel().setText("Table " + table.getTableNumber());
+            customerContainer.setTitle("Table " + tableButton.getTableNumber());
+            customerContainer.getLabel().setText("Table " + tableButton.getTableNumber());
             view.setEnabled(false);
-            customerContainer.setLocationRelativeTo(table);
+            customerContainer.setLocationRelativeTo(tableButton);
         } else {
-            boolean seated = model.seatCustomer(seatingCustomer, table.getTableNumber());
+            boolean seated = model.seatCustomer(seatingCustomer, tableButton.getTableNumber());
             seatingCustomer = -1;
 
             if (!seated) {
                 Toolkit.getDefaultToolkit().beep();
             }
 
-            for (TableButton tableButton : view.getTables()) {
-                view.returnTableToNormal(tableButton.getTableNumber());
+            for (TableButton tableButtonLoop : view.getTables()) {
+                view.returnTableToNormal(tableButtonLoop.getTableNumber());
             }
         }
     }

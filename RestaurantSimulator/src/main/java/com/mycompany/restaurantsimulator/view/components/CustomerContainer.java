@@ -4,6 +4,10 @@
  */
 package com.mycompany.restaurantsimulator.view.components;
 
+import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -52,11 +56,12 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
         addWindowListener(null);
 
         jLabel1 = new javax.swing.JLabel();
-        serveFoodButton = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
-        serveCheckButton = new com.mycompany.restaurantsimulator.view.components.RoundedButton();
+        serveFoodButton = new RoundedButton();
+        serveCheckButton = new RoundedButton();
+        retrieveOrderButton = new RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 150));
+        setPreferredSize(new java.awt.Dimension(500, 150));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Table " + this.tableNumber);
@@ -73,7 +78,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                 shrinkButton(evt);
             }
         });
-        serveFoodButton.addActionListener(this::roundedButton1ActionPerformed);
 
         serveCheckButton.setBorderRadius(20);
         serveCheckButton.setText("Serve check and send home");
@@ -87,14 +91,29 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                 shrinkButton(evt);
             }
         });
-        serveCheckButton.addActionListener(this::roundedButton2ActionPerformed);
+        serveCheckButton.addActionListener(this::serveCheckButtonActionPerformed);
+
+        retrieveOrderButton.setBorderRadius(20);
+        retrieveOrderButton.setText("Retrieve order");
+        retrieveOrderButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        retrieveOrderButton.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                growButton(evt);
+            }
+
+            public void mouseExited(MouseEvent evt) {
+                shrinkButton(evt);
+            }
+        });
+
+        retrieveOrderButton.addActionListener(this::retrieveOrderButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(155, 155, 155)
+                                .addGap(210, 210, 210)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -102,7 +121,11 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                                 .addContainerGap()
                                 .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94,
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10,
+                                        Short.MAX_VALUE)
+                                .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10,
                                         Short.MAX_VALUE)
                                 .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,12 +140,20 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(86, 86, 86)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void hideDialog() {
+        this.setVisible(false);
+        this.frame.setEnabled(true);
+        this.frame.setVisible(true);
+    }
 
     private void growButton(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_growButton
         GlobalEvents.growButton(evt);
@@ -132,13 +163,17 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
         GlobalEvents.shrinkButton(evt);
     }// GEN-LAST:event_shrinkButton
 
-    private void roundedButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_roundedButton2ActionPerformed
+    public RoundedButton getRetrieveOrderButton() {
+        return this.retrieveOrderButton;
+    }
+
+    private void serveCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_roundedButton2ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_roundedButton2ActionPerformed
 
-    private void roundedButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_roundedButton1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_roundedButton1ActionPerformed
+    private void retrieveOrderButtonActionPerformed(ActionEvent evt) {
+
+    }
 
     /**
      * @param args the command line arguments
@@ -169,16 +204,11 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
         java.awt.EventQueue.invokeLater(() -> new CustomerContainer(null).setVisible(true));
     }
 
-    public CustomerContainer setVisibleAndReturnThis(boolean b) {
-        // TODO Auto-generated method stub
-        super.setVisible(b);
-        return this;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton serveFoodButton;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton serveCheckButton;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton retrieveOrderButton;
     // End of variables declaration//GEN-END:variables
 
     @Override
