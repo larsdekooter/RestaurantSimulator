@@ -15,6 +15,8 @@ import com.mycompany.restaurantsimulator.view.components.TableButton;
 import com.mycompany.restaurantsimulator.view.ui.ProgressCircleUI;
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
 
+import java.util.Arrays;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
  * to change this license
@@ -59,6 +61,10 @@ public class GUIContainer extends javax.swing.JFrame {
 
     public TableButton[] getTables() {
         return this.tables;
+    }
+
+    public JButton getNewCustomersButton() {
+        return jButton2;
     }
 
     /**
@@ -621,5 +627,35 @@ public class GUIContainer extends javax.swing.JFrame {
     private com.mycompany.restaurantsimulator.view.components.RoundedButton stove2;
     private javax.swing.JProgressBar stove2ProgressBar;
     private javax.swing.JLayeredPane stove2Pane;
+
+    public void turnTableGreen(int id) {
+        TableButton tableButton = Arrays.stream(tables)
+                .filter(t -> t.getTableNumber() == id)
+                .findFirst().orElse(null);
+
+        if (tableButton == null) throw new RuntimeException("Table number not found");
+
+        tableButton.setForeground(new java.awt.Color(0, 255, 0));
+    }
+
+    public void turnTableRed(int id){
+        TableButton tableButton = Arrays.stream(tables)
+                .filter(t -> t.getTableNumber() == id)
+                .findFirst().orElse(null);
+
+        if (tableButton == null) throw new RuntimeException("Table number not found");
+
+        tableButton.setForeground(new java.awt.Color(255, 0, 0));
+    }
+
+    public void returnTableToNormal(int id) {
+        TableButton tableButton = Arrays.stream(tables)
+                .filter(t -> t.getTableNumber() == id)
+                .findFirst().orElse(null);
+
+        if (tableButton == null) throw new RuntimeException("Table number not found");
+
+        tableButton.setForeground(new java.awt.Color(0, 0, 0));
+    }
     // End of variables declaration//GEN-END:variables
 }

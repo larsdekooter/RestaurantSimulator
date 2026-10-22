@@ -12,7 +12,7 @@ import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import java.awt.Dimension;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
@@ -37,9 +37,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     public FoodSelectionContainer(Menu menu) {
         this.menu = menu;
         initComponents();
-        for (Food food : menu.foods) {
-            menuItems.add(food);
-        }
+        menuItems.addAll(Arrays.asList(menu.foods));
         updateList(menuItems);
     }
 
@@ -56,7 +54,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     public void setFoodType(FoodType type) {
         menuItems.clear();
         for (Food item : this.menu.foods) {
-            if (item.type == type) {
+            if (item.getFoodType() == type) {
                 menuItems.add(item);
             }
         }

@@ -1,6 +1,8 @@
 package com.mycompany.restaurantsimulator.models;
 
 import com.mycompany.restaurantsimulator.models.customers.Customer;
+import com.mycompany.restaurantsimulator.models.stoves.Stove;
+import java.util.Arrays;
 
 public class Restaurant {
     private String name;
@@ -15,6 +17,14 @@ public class Restaurant {
         this.customers = new Customer[1000];
         this.stove = new Stove[numberOfStoves];
         this.menu = new Menu();
+
+        createTables();
+    }
+
+    private void createTables() {
+        for (int i = 0; i < tables.length; i++) {
+            tables[i] = new Table(i + 1, i + 1);
+        }
     }
 
     public String getName() {
@@ -45,6 +55,14 @@ public class Restaurant {
         return customers;
     }
 
+    public boolean addCustomer(Customer customer) {
+        if (customer == null || customer.id == -1 || customers[customer.id] != null) {
+            return false;
+        }
+        customers[customer.id] = customer;
+        return true;
+    }
+
     public void setCustomers(Customer[] customers) {
         this.customers = customers;
     }
@@ -55,5 +73,26 @@ public class Restaurant {
 
     public void setStove(Stove[] stove) {
         this.stove = stove;
+    }
+
+    public boolean seatCustomer(int customerId, int tableId) {
+        Customer customer = Arrays.stream(customers)
+                .filter(c -> c.id ==  customerId)
+                .findFirst().orElse(null);
+
+        Table table = Arrays.stream(tables)
+                .filter(t -> t.id == tableId)
+                .findFirst().orElse(null);
+
+        if (customer == null || table == null) return false;
+
+        return table.seatCustomers(customer);
+    }
+
+    public int nextCustomerId() {
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] == null) return i;
+        }
+        return -1;
     }
 }

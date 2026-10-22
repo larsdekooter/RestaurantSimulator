@@ -1,4 +1,4 @@
-package com.mycompany.restaurantsimulator.models;
+package com.mycompany.restaurantsimulator.models.stoves;
 
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 
