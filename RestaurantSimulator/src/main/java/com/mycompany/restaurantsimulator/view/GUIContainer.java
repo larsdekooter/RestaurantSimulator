@@ -632,18 +632,20 @@ public class GUIContainer extends javax.swing.JFrame {
         TableButton tableButton = Arrays.stream(tables)
                 .filter(t -> t.getTableNumber() == id)
                 .findFirst().orElse(null);
-
-        if (tableButton == null) throw new RuntimeException("Table number not found");
+        // FIXME: THrows
+        if (tableButton == null)
+            throw new RuntimeException("Table number not found");
 
         tableButton.setForeground(new java.awt.Color(0, 255, 0));
     }
 
-    public void turnTableRed(int id){
+    public void turnTableRed(int id) {
         TableButton tableButton = Arrays.stream(tables)
                 .filter(t -> t.getTableNumber() == id)
                 .findFirst().orElse(null);
 
-        if (tableButton == null) throw new RuntimeException("Table number not found");
+        if (tableButton == null)
+            throw new RuntimeException("Table number not found");
 
         tableButton.setForeground(new java.awt.Color(255, 0, 0));
     }
@@ -653,7 +655,8 @@ public class GUIContainer extends javax.swing.JFrame {
                 .filter(t -> t.getTableNumber() == id)
                 .findFirst().orElse(null);
 
-        if (tableButton == null) throw new RuntimeException("Table number not found");
+        if (tableButton == null)
+            throw new RuntimeException("Table number not found");
 
         tableButton.setForeground(new java.awt.Color(0, 0, 0));
     }
