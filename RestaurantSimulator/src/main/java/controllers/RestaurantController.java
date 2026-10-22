@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
@@ -44,6 +45,8 @@ public class RestaurantController {
         view.getOrderButton()
                 .addActionListener((e) -> orderContainer.setVisible(true));
 
+        customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
+
         for (TableButton table : view.getTables()) {
             table.addActionListener(e -> tableClicked(e, table));
         }
@@ -65,8 +68,37 @@ public class RestaurantController {
         }
     }
 
+    private void retrieveOrder(ActionEvent e) {
+        int tableNumber = Integer.parseInt(customerContainer.getTitle().replaceAll("Table ", ""));
+        Table table = null;
+        for (Table loopTable : model.getTables()) {
+            if (loopTable.id == tableNumber) {
+                table = loopTable;
+            }
+        }
+        if (table == null)
+            throw new Error("No table could be found!");
+
+        model.addOrder(tableNumber, table.customer.getOrder(new Menu()));
+        this.orderContainer.setOrders(model.getOrders());
+        customerContainer.hideDialog();
+    }
+
     private void tableClicked(ActionEvent e, TableButton table) {
         if (seatingCustomer == -1) {
+            Table foundTable = null;
+            System.out.println(table.getTableNumber());
+            for (Table tableLoop : model.getTables()) {
+                if (tableLoop.id == table.getTableNumber()) {
+                    foundTable = tableLoop;
+                }
+            }
+            if (foundTable == null) {
+                throw new Error("No table found");
+            }
+
+            if (foundTable.customer == null)
+                return;
             setupTableView(table);
         } else {
             boolean seated = model.seatCustomer(seatingCustomer, table.getTableNumber());
