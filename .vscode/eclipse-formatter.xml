@@ -4,5 +4,7 @@
         <!-- Sets continuation indent (wrapped lines) to 1 tab / 4 spaces instead of 2 tabs / 8 spaces -->
         <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="1"/>
         <setting id="org.eclipse.jdt.core.formatter.continuation_indentation_for_array_initializer" value="1"/>
+        <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="90"/>
+        <setting id="org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_switch" value="true" />
     </profile>
 </profiles>

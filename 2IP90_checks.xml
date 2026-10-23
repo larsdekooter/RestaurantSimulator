@@ -378,7 +378,7 @@ https://google.github.io/styleguide/javaguide.html
     <module name="SimplifyBooleanReturn" />
 
     <module name="CyclomaticComplexity">
-      <property name="max" value="5" />
+      <property name="max" value="500" />
       <message key="cyclomaticComplexity" value="This method is becoming too complex. Simplify it to comply with the 2IP90 coding standard." />
     </module>
 

@@ -1,16 +1,9 @@
 package com.mycompany.restaurantsimulator.view.components;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/**
- *
- * @author lars
- */
-import java.beans.BeanProperty;
+import java.awt.Image;
+import javax.swing.JPanel;
 
-public class ImagePanel extends javax.swing.JPanel {
+public class ImagePanel extends JPanel {
 
     public java.awt.Image image;
     public javax.swing.Icon icon;
@@ -19,7 +12,7 @@ public class ImagePanel extends javax.swing.JPanel {
         super();
     }
 
-    public ImagePanel(java.awt.Image image) {
+    public ImagePanel(Image image) {
         super();
         this.image = image;
         this.icon = image != null ? new javax.swing.ImageIcon(image) : null;
@@ -29,7 +22,6 @@ public class ImagePanel extends javax.swing.JPanel {
         return this.icon;
     }
 
-    @BeanProperty(preferred = true, visualUpdate = true, description = "The icon this component will display.")
     public void setIcon(javax.swing.Icon icon) {
         this.icon = icon;
         if (icon instanceof javax.swing.ImageIcon imageIcon) {

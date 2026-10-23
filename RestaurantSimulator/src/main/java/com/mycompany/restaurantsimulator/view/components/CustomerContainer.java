@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.restaurantsimulator.view.components;
 
+import com.mycompany.restaurantsimulator.models.GlobalEvents;
+import com.mycompany.restaurantsimulator.models.Table;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -11,9 +9,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import com.mycompany.restaurantsimulator.models.GlobalEvents;
-import com.mycompany.restaurantsimulator.models.Table;
 
 /**
  *
@@ -23,9 +18,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
 
     public int tableNumber;
     private JFrame frame;
-
-    private static final java.util.logging.Logger logger = java.util.logging.Logger
-        .getLogger(CustomerContainer.class.getName());
 
     /**
      * Creates new form CustomerFrame
@@ -118,37 +110,50 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup().addGap(210, 210, 210)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
-                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(
-                layout.createSequentialGroup().addContainerGap()
-                    .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addGap(210, 210, 210)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                    .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                    .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE,
-                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
+                        Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup().addContainerGap()
+                    .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                        10, Short.MAX_VALUE)
+                    .addComponent(retrieveOrderButton,
+                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                        10, Short.MAX_VALUE)
+                    .addComponent(serveCheckButton,
+                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-            .createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+        layout.setVerticalGroup(layout
+            .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
                     javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
-                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
-                    javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(86, 86, 86)));
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout
+                    .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(retrieveOrderButton,
+                        javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serveCheckButton,
+                        javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     public void hideDialog() {
         this.setVisible(false);
@@ -156,46 +161,16 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
         this.frame.setVisible(true);
     }
 
-    private void growButton(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_growButton
+    private void growButton(java.awt.event.MouseEvent evt) {
         GlobalEvents.growButton(evt);
-    }// GEN-LAST:event_growButton
+    }
 
-    private void shrinkButton(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_shrinkButton
+    private void shrinkButton(java.awt.event.MouseEvent evt) {
         GlobalEvents.shrinkButton(evt);
-    }// GEN-LAST:event_shrinkButton
+    }
 
     public RoundedButton getRetrieveOrderButton() {
         return this.retrieveOrderButton;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
-        // code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.
-         * html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CustomerContainer(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

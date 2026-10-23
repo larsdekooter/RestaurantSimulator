@@ -2,7 +2,6 @@ package com.mycompany.restaurantsimulator.models;
 
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
 
 public class GlobalEvents {
@@ -19,8 +18,10 @@ public class GlobalEvents {
      * Grow the button on mouseEnter
      */
     public static void growButton(JButton button) {
-        button.setSize(new Dimension(button.getWidth() + sizeIncrement, button.getHeight() + sizeIncrement));
-        button.setLocation(button.getLocation().x - sizeIncrement / 2, button.getLocation().y - sizeIncrement / 2);
+        button.setSize(new Dimension(button.getWidth() + sizeIncrement,
+            button.getHeight() + sizeIncrement));
+        button.setLocation(button.getLocation().x - sizeIncrement / 2,
+            button.getLocation().y - sizeIncrement / 2);
     }
 
     /**
@@ -34,7 +35,9 @@ public class GlobalEvents {
      * Grow the button on mouseEnter
      */
     public static void shrinkButton(JButton button) {
-        button.setSize(new Dimension(button.getWidth() - sizeIncrement, button.getHeight() - sizeIncrement));
-        button.setLocation(button.getLocation().x + sizeIncrement / 2, button.getLocation().y + sizeIncrement / 2);
+        button.setSize(new Dimension(button.getWidth() - sizeIncrement,
+            button.getHeight() - sizeIncrement));
+        button.setLocation(button.getLocation().x + sizeIncrement / 2,
+            button.getLocation().y + sizeIncrement / 2);
     }
 }

@@ -14,9 +14,10 @@ public class Stove {
     }
 
     public boolean setCooking(Food cooking) {
-        if (this.cooking != null && this.timeCooking != this.cooking.getCookingTime())
+        if (this.cooking != null && this.timeCooking != this.cooking.getCookingTime()) {
             // If the current food is not done cooking yet, don't set the food
             return false;
+        }
         this.cooking = cooking;
         return true;
     }
@@ -35,7 +36,8 @@ public class Stove {
         if (this.cooking == null) {
             return 0;
         }
-        return (int) Math.round((this.timeCooking * 100.0) / this.cooking.getCookingTime());
+        return (int) Math
+            .round((this.timeCooking * 100.0) / this.cooking.getCookingTime());
     }
 
     public boolean checkTimer() {

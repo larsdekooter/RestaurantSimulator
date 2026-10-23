@@ -9,7 +9,6 @@ import java.awt.Shape;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
-
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
@@ -26,8 +25,9 @@ public class ProgressCircleUI extends BasicProgressBarUI {
 
     public void calculateMultiplier() {
         int diameter = Math.min(progressBar.getWidth(), progressBar.getHeight());
-        if (diameter == 0)
+        if (diameter == 0) {
             return;
+        }
         float innerCircleDiameter = diameter - BAR_WIDTH;
         multiplier = innerCircleDiameter / diameter;
     }
@@ -53,20 +53,22 @@ public class ProgressCircleUI extends BasicProgressBarUI {
         Insets b = progressBar.getInsets();
         int barRecWidth = progressBar.getWidth();
         int barRecHeight = progressBar.getHeight();
-        if (barRecWidth <= 0 || barRecHeight <= 0)
+        if (barRecWidth <= 0 || barRecHeight <= 0) {
             return;
+        }
 
         Graphics2D g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setPaint(progressBar.getForeground());
 
         double degrees = 360 * progressBar.getPercentComplete();
         calculateMultiplier();
         calculateCircleValues(b, barRecHeight, barRecWidth);
-        Shape inner = new Ellipse2D.Double(xCenter - innerRadius, yCenter - innerRadius, innerRadius * 2,
-            innerRadius * 2);
-        Shape outer = new Arc2D.Double(xCenter - outerRadius, yCenter - outerRadius, diameter, diameter, 90 - degrees,
-            degrees, Arc2D.PIE);
+        Shape inner = new Ellipse2D.Double(xCenter - innerRadius, yCenter - innerRadius,
+            innerRadius * 2, innerRadius * 2);
+        Shape outer = new Arc2D.Double(xCenter - outerRadius, yCenter - outerRadius,
+            diameter, diameter, 90 - degrees, degrees, Arc2D.PIE);
 
         Area area = new Area(outer);
         // This area is now the circle, with a width of BAR_WIDTH and a

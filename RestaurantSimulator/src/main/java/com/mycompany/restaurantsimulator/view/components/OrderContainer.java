@@ -1,28 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.restaurantsimulator.view.components;
-
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.swing.DefaultListModel;
 
 import com.mycompany.restaurantsimulator.models.Order;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import com.mycompany.restaurantsimulator.view.GUIContainer;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author lars
  */
 public class OrderContainer extends javax.swing.JDialog implements WindowListener {
-
-    private static final java.util.logging.Logger logger = java.util.logging.Logger
-        .getLogger(OrderContainer.class.getName());
 
     private Map<Integer, Order> orders = new HashMap<>();
     private int nTables;
@@ -68,11 +60,6 @@ public class OrderContainer extends javax.swing.JDialog implements WindowListene
 
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setTitle("Orders");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                orderCloses(evt);
-            }
-        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(tableNames));
         jComboBox2.addActionListener(this::updateTableSelection);
@@ -83,69 +70,42 @@ public class OrderContainer extends javax.swing.JDialog implements WindowListene
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout
-            .setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup().addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jComboBox2, 0, 388, Short.MAX_VALUE).addComponent(jScrollPane1))
+                    .addGroup(layout
+                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jComboBox2, 0, 388, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1))
                     .addContainerGap()));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup().addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                    javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                    javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE)));
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap()
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(11, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void orderCloses(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_orderCloses
-        return;
-    }// GEN-LAST:event_orderCloses
-
-    private void updateTableSelection(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateTableSelection
+    private void updateTableSelection(java.awt.event.ActionEvent evt) {
         int selectedIndex = jComboBox2.getSelectedIndex() + 1;
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
         model.clear();
         if (selectedIndex != -1 && orders.containsKey(selectedIndex)) {
             Order order = orders.get(selectedIndex);
-            if (order == null)
+            if (order == null) {
                 return;
+            }
             for (MenuItem item : order.items) {
                 model.addElement(item.toString());
             }
         }
-    }// GEN-LAST:event_updateTableSelection
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
-        // code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.
-         * html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

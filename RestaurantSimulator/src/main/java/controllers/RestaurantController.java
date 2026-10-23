@@ -1,14 +1,5 @@
 package controllers;
 
-import java.awt.Component;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.Timer;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
@@ -24,6 +15,13 @@ import com.mycompany.restaurantsimulator.view.components.InventoryContainer;
 import com.mycompany.restaurantsimulator.view.components.OrderContainer;
 import com.mycompany.restaurantsimulator.view.components.SuccesDialog;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
+import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class RestaurantController {
     // The duration of the progress bar animation in ms
@@ -78,12 +76,13 @@ public class RestaurantController {
             table.addActionListener(e -> tableClicked(e, table));
         }
 
-        foodSelectionContainer.getFoodList().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                handleFoodSelection(e);
-            }
-        });
+        foodSelectionContainer.getFoodList()
+            .addListSelectionListener(new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    handleFoodSelection(e);
+                }
+            });
 
         view.getInventoryButton().addActionListener(this::openInventoryScreen);
     }
@@ -94,7 +93,9 @@ public class RestaurantController {
         model.settleTable(tableNumber);
         customerContainer.hideDialog();
         view.setProfit(model.getProfit());
-        succes("You recieved €" + String.format("%.2f", (double) (model.getProfit() - prevProfit)),
+        succes(
+            "You recieved €"
+                + String.format("%.2f", (double) (model.getProfit() - prevProfit)),
             (Component) actionEvent.getSource());
     }
 
@@ -126,8 +127,9 @@ public class RestaurantController {
         seatingCustomer = customer.id;
 
         for (Table table : model.getTables()) {
-            if (table == null)
+            if (table == null) {
                 continue;
+            }
             if (table.customer == null && table.seats >= customer.partySize) {
                 view.turnTableGreen(table.id);
             } else {
@@ -157,8 +159,9 @@ public class RestaurantController {
                 throw new Error("No table found");
             }
 
-            if (foundTable.customer == null)
+            if (foundTable.customer == null) {
                 return;
+            }
             setupTableView(table);
         } else {
             boolean seated = model.seatCustomer(seatingCustomer, table.getTableNumber());
@@ -193,33 +196,37 @@ public class RestaurantController {
 
     public void handleFoodSelection(ListSelectionEvent e) {
         int foodIndex = foodSelectionContainer.getFoodList().getSelectedIndex();
-        if (foodIndex < 0)
+        if (foodIndex < 0) {
             return;
+        }
         try {
-            Food selectedFood = (Food) foodSelectionContainer.getMenuItems().get(foodIndex);
+            Food selectedFood = (Food) foodSelectionContainer.getMenuItems()
+                .get(foodIndex);
             Stove cooker;
             switch (foodSelectionContainer.getFoodType()) {
-            case FoodType.Stove:
-                cooker = stove;
+                case FoodType.Stove:
+                    cooker = stove;
 
-                break;
-            case FoodType.Furnace:
-                cooker = furnace;
-                break;
-            default:
-                // Should never reach, but for typesafety
-                cooker = stove;
-                break;
+                    break;
+                case FoodType.Furnace:
+                    cooker = furnace;
+                    break;
+                default:
+                    // Should never reach, but for typesafety
+                    cooker = stove;
+                    break;
             }
             boolean result = cooker.setCooking(selectedFood);
-            if (!result)
+            if (!result) {
                 return;
+            }
             foodSelectionContainer.dispose();
             Timer swingTimer = new Timer(ANIMATION_DURATION, new ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     cooker.addTime(ANIMATION_DURATION / 1000.);
-                    view.setCookingProgress(cooker.getPercentageDone(), selectedFood.getFoodType());
+                    view.setCookingProgress(cooker.getPercentageDone(),
+                        selectedFood.getFoodType());
                     if (cooker.checkTimer()) {
                         // The food is done
                         ((javax.swing.Timer) e.getSource()).stop();

@@ -11,7 +11,6 @@ import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
-
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,8 +26,6 @@ import javax.swing.SwingConstants;
 public class FoodSelectionContainer extends javax.swing.JFrame {
 
     private Menu menu;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger
-        .getLogger(FoodSelectionContainer.class.getName());
 
     private ArrayList<MenuItem> menuItems = new ArrayList<>();
     private FoodType foodType;
@@ -91,20 +88,25 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
 
         updateList(menuItems);
 
-        DefaultListCellRenderer renderer = (DefaultListCellRenderer) foodList.getCellRenderer();
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) foodList
+            .getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
 
         jScrollPane1.setViewportView(foodList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jScrollPane1).addContainerGap()));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap()
+                    .addComponent(jScrollPane1).addContainerGap()));
 
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup().addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                .addContainerGap()));
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout
+                    .createSequentialGroup().addContainerGap().addComponent(jScrollPane1,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addContainerGap()));
 
         pack();
     } // </editor-fold>//GEN-END:initComponents
@@ -116,36 +118,6 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
             model.addElement(item.name);
 
         }
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
-        // code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.
-         * html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FoodSelectionContainer().setVisible(true));
     }
 
     public JList<String> getFoodList() {
