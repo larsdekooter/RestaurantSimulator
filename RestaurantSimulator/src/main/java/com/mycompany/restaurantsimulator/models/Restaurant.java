@@ -1,8 +1,10 @@
 package com.mycompany.restaurantsimulator.models;
 
 import com.mycompany.restaurantsimulator.models.customers.Customer;
+import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import com.mycompany.restaurantsimulator.models.stoves.Stove;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +17,7 @@ public class Restaurant {
     private Stove[] stove;
     private Map<Integer, Order> orders;
     private double profit;
+    private ArrayList<MenuItem> inventory = new ArrayList<>();
 
     public Restaurant(String name, int numberOfTables, int numberOfStoves) {
         this.name = name;
@@ -92,13 +95,9 @@ public class Restaurant {
     }
 
     public boolean seatCustomer(int customerId, int tableId) {
-        Customer customer = Arrays.stream(customers)
-                .filter(c -> c.id == customerId)
-                .findFirst().orElse(null);
+        Customer customer = Arrays.stream(customers).filter(c -> c.id == customerId).findFirst().orElse(null);
 
-        Table table = Arrays.stream(tables)
-                .filter(t -> t.id == tableId)
-                .findFirst().orElse(null);
+        Table table = Arrays.stream(tables).filter(t -> t.id == tableId).findFirst().orElse(null);
 
         if (customer == null || table == null)
             return false;
@@ -128,5 +127,19 @@ public class Restaurant {
 
     public Table getTable(int tableNumber) {
         return tables[tableNumber - 1];
+    }
+
+    public void addItemToInventory(MenuItem item) {
+        this.inventory.add(item);
+    }
+
+    public int getItemIndexInInventory(MenuItem item) {
+        return this.inventory.indexOf(item);
+    }
+
+    public void removeItemFromInventory(MenuItem item) {
+        int index = getItemIndexInInventory(item);
+        if (index > -1)
+            inventory.remove(index);
     }
 }

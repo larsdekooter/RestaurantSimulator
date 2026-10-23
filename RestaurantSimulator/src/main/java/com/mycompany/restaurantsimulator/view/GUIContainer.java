@@ -17,7 +17,6 @@ import com.mycompany.restaurantsimulator.view.components.TableButton;
 import com.mycompany.restaurantsimulator.view.ui.ProgressCircleUI;
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
 import com.mycompany.restaurantsimulator.models.enums.FoodType;
-import com.mycompany.restaurantsimulator.models.stoves.Stove;
 
 import java.util.Arrays;
 

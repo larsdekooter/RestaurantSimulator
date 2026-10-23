@@ -179,8 +179,11 @@ public class RestaurantController {
 
                     if (cooker.checkTimer()) {
                         ((javax.swing.Timer) e.getSource()).stop();
+                        cooker.removeItem();
+                        model.addItemToInventory(selectedFood);
                     }
                 }
+
             });
             swingTimer.start();
         } catch (IndexOutOfBoundsException exc) {

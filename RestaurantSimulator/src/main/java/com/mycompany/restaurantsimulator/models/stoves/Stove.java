@@ -21,6 +21,11 @@ public class Stove {
         return true;
     }
 
+    public void removeItem() {
+        this.cooking = null;
+        this.timeCooking = 0;
+    }
+
     /**
      * Get the percentage of cooking time
      * 
