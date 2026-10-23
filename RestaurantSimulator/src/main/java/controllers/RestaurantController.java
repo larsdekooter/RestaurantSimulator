@@ -12,7 +12,6 @@ import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
-import com.mycompany.restaurantsimulator.models.customers.WealthyCustomer;
 import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import com.mycompany.restaurantsimulator.models.stoves.Furnace;
@@ -20,16 +19,20 @@ import com.mycompany.restaurantsimulator.models.stoves.Stove;
 import com.mycompany.restaurantsimulator.view.GUIContainer;
 import com.mycompany.restaurantsimulator.view.components.CustomerContainer;
 import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
+import com.mycompany.restaurantsimulator.view.components.InventoryContainer;
 import com.mycompany.restaurantsimulator.view.components.OrderContainer;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
 
 public class RestaurantController {
+    // The duration of the progress bar animation in ms
+    public static int ANIMATION_DURATION = 20;
 
     public Restaurant model;
     public FoodSelectionContainer foodSelectionContainer;
     public OrderContainer orderContainer;
     public GUIContainer view;
     public CustomerContainer customerContainer;
+    public InventoryContainer inventoryContainer;
     private int seatingCustomer;
     private Stove stove = new Stove(0, null, 0);
     private Furnace furnace = new Furnace(1, null, 0);
@@ -40,6 +43,7 @@ public class RestaurantController {
         this.foodSelectionContainer = new FoodSelectionContainer(model.getMenu());
         this.orderContainer = new OrderContainer(model.getTables().length);
         this.customerContainer = new CustomerContainer(view);
+        this.inventoryContainer = new InventoryContainer();
         this.seatingCustomer = -1;
 
         view.getStove().addActionListener((e) -> {
@@ -67,6 +71,8 @@ public class RestaurantController {
                 handleFoodSelection(e);
             }
         });
+
+        view.getInventoryButton().addActionListener(this::openInventoryScreen);
     }
 
     private void seatCustomer(ActionEvent e) {
@@ -161,16 +167,17 @@ public class RestaurantController {
             if (!result)
                 return;
             foodSelectionContainer.dispose();
-            Timer swingTimer = new Timer(1000, new ActionListener() {
+            Timer swingTimer = new Timer(ANIMATION_DURATION, new ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    cooker.addSecond();
+                    cooker.addTime(ANIMATION_DURATION / 1000.);
                     view.setCookingProgress(cooker.getPercentageDone(), selectedFood.getFoodType());
-
                     if (cooker.checkTimer()) {
+                        // The food is done
                         ((javax.swing.Timer) e.getSource()).stop();
                         cooker.removeItem();
                         model.addItemToInventory(selectedFood);
+                        view.setCookingProgress(0, selectedFood.getFoodType());
                     }
                 }
 
@@ -179,5 +186,11 @@ public class RestaurantController {
         } catch (IndexOutOfBoundsException exc) {
             System.out.println(exc);
         }
+    }
+
+    public void openInventoryScreen(ActionEvent e) {
+        inventoryContainer.setVisible(true);
+        inventoryContainer.setLocationRelativeTo(view.getInventoryButton());
+        inventoryContainer.updateList(model.getInventory());
     }
 }

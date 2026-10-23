@@ -5,7 +5,7 @@ import com.mycompany.restaurantsimulator.models.menuItems.Food;
 public class Stove {
     public int id;
     public Food cooking; // Can be null
-    public int timeCooking;
+    public double timeCooking;
 
     public Stove(int id, Food cooking, int timeCooking) {
         this.id = id;
@@ -43,9 +43,9 @@ public class Stove {
     }
 
     /**
-     * Adds a second to the time the food is cooking
+     * Adds time to the time the food is cooking
      */
-    public void addSecond() {
-        this.timeCooking++;
+    public void addTime(double time) {
+        this.timeCooking += time;
     }
 }
