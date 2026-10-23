@@ -1,7 +1,10 @@
 package com.mycompany.restaurantsimulator.view;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -150,6 +153,7 @@ public class GUIContainer extends javax.swing.JFrame {
         furnaceProgressBar = new JProgressBar();
         furnacePane = new JLayeredPane();
         profitLabel = new JLabel();
+        inventoryButton = new RoundedButton();
 
         tables = new TableButton[] { table1, table2, table3, table4, table5, table6, table7, table8, table9 };
 
@@ -177,6 +181,24 @@ public class GUIContainer extends javax.swing.JFrame {
                 GlobalEvents.shrinkButton(evt);
             }
         });
+
+        inventoryButton.setIcon(
+            new ImageIcon(getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/backpack.png")));
+        inventoryButton.setBorderPainted(false);
+        inventoryButton.setContentAreaFilled(false);
+        inventoryButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        inventoryButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                GlobalEvents.growButton(e);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                GlobalEvents.shrinkButton(e);
+            }
+        });
+        inventoryButton.setPreferredSize(new Dimension(80, 80));
 
         roundedButton3.setBackground(new java.awt.Color(255, 255, 255));
         roundedButton3.setIcon(new javax.swing.ImageIcon(
@@ -287,8 +309,11 @@ public class GUIContainer extends javax.swing.JFrame {
             .addGroup(imagePanel2Layout.createSequentialGroup()
                 // .addContainerGap(GroupLayout.DEFAULT_SIZE,
                 // Short.MAX_VALUE)
-                .addGap(587, 587, 587).addComponent(furnacePane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE,
-                    GroupLayout.PREFERRED_SIZE)));
+                .addGap(587, 587, 587)
+                .addComponent(furnacePane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addGap(400, 400, 400)
+                .addComponent(inventoryButton, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)));
 
         imagePanel2Layout.setVerticalGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(imagePanel2Layout.createSequentialGroup()
@@ -324,6 +349,7 @@ public class GUIContainer extends javax.swing.JFrame {
                 .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(table8, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
                     .addComponent(table9, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+                .addComponent(inventoryButton, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10).addComponent(roundedButton3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
                     GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
@@ -374,6 +400,7 @@ public class GUIContainer extends javax.swing.JFrame {
     private javax.swing.JLayeredPane furnacePane;
     private int profit = 0;
     private JLabel profitLabel;
+    private RoundedButton inventoryButton;
 
     public void turnTableGreen(int id) {
         System.out.println(id);
