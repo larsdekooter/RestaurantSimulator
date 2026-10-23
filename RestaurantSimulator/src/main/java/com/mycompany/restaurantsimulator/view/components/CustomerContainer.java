@@ -27,7 +27,7 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
     private JFrame frame;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger
-            .getLogger(CustomerContainer.class.getName());
+        .getLogger(CustomerContainer.class.getName());
 
     /**
      * Creates new form CustomerFrame
@@ -123,41 +123,34 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(210, 210, 210)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10,
-                                        Short.MAX_VALUE)
-                                .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10,
-                                        Short.MAX_VALUE)
-                                .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap()));
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(86, 86, 86)));
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup().addGap(210, 210, 210)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(
+                layout.createSequentialGroup().addContainerGap()
+                    .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117,
+                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                    .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                    .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+            .createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(serveFoodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(retrieveOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(serveCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44,
+                    javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(86, 86, 86)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,13 +186,14 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
+        // code
         // (optional) ">
         /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.
+         * html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

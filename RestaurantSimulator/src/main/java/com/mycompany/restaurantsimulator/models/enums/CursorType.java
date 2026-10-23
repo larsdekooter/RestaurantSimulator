@@ -3,12 +3,8 @@ package com.mycompany.restaurantsimulator.models.enums;
 import java.awt.Cursor;
 
 public enum CursorType {
-    DEFAULT(Cursor.DEFAULT_CURSOR),
-    HAND(Cursor.HAND_CURSOR),
-    CROSSHAIR(Cursor.CROSSHAIR_CURSOR),
-    TEXT(Cursor.TEXT_CURSOR),
-    WAIT(Cursor.WAIT_CURSOR),
-    MOVE(Cursor.MOVE_CURSOR);
+    DEFAULT(Cursor.DEFAULT_CURSOR), HAND(Cursor.HAND_CURSOR), CROSSHAIR(Cursor.CROSSHAIR_CURSOR),
+    TEXT(Cursor.TEXT_CURSOR), WAIT(Cursor.WAIT_CURSOR), MOVE(Cursor.MOVE_CURSOR);
 
     private final int type;
 

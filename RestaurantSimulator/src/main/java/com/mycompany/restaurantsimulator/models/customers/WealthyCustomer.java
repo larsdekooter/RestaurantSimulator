@@ -15,13 +15,10 @@ public class WealthyCustomer extends Customer {
         MenuItem[] order = new MenuItem[partySize * 2];
 
         for (int i = 0; i < partySize; i++) {
-            order[i] = Arrays.stream(menu.foods)
-                    .max(Comparator.comparingDouble(f -> f.price))
-                    .orElseThrow();
+            order[i] = Arrays.stream(menu.foods).max(Comparator.comparingDouble(f -> f.price)).orElseThrow();
 
-            order[i + partySize] = Arrays.stream(menu.drinks)
-                    .max(Comparator.comparingDouble(d -> d.price))
-                    .orElseThrow();
+            order[i + partySize] = Arrays.stream(menu.drinks).max(Comparator.comparingDouble(d -> d.price))
+                .orElseThrow();
         }
 
         return order;
@@ -29,7 +26,8 @@ public class WealthyCustomer extends Customer {
 
     @Override
     public double calculateCheck() {
-        if (!receivedOrder) return 0.0;
+        if (!receivedOrder)
+            return 0.0;
         return order.calculatePrice() * 2;
     }
 }

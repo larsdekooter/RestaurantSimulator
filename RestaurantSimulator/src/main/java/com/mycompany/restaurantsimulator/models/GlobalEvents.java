@@ -19,8 +19,7 @@ public class GlobalEvents {
      * Grow the button on mouseEnter
      */
     public static void growButton(JButton button) {
-        button.setSize(
-                new Dimension(button.getWidth() + sizeIncrement, button.getHeight() + sizeIncrement));
+        button.setSize(new Dimension(button.getWidth() + sizeIncrement, button.getHeight() + sizeIncrement));
         button.setLocation(button.getLocation().x - sizeIncrement / 2, button.getLocation().y - sizeIncrement / 2);
     }
 
@@ -35,8 +34,7 @@ public class GlobalEvents {
      * Grow the button on mouseEnter
      */
     public static void shrinkButton(JButton button) {
-        button.setSize(
-                new Dimension(button.getWidth() - sizeIncrement, button.getHeight() - sizeIncrement));
+        button.setSize(new Dimension(button.getWidth() - sizeIncrement, button.getHeight() - sizeIncrement));
         button.setLocation(button.getLocation().x + sizeIncrement / 2, button.getLocation().y + sizeIncrement / 2);
     }
 }

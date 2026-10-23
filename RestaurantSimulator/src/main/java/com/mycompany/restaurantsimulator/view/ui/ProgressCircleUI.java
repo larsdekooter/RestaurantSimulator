@@ -64,12 +64,13 @@ public class ProgressCircleUI extends BasicProgressBarUI {
         calculateMultiplier();
         calculateCircleValues(b, barRecHeight, barRecWidth);
         Shape inner = new Ellipse2D.Double(xCenter - innerRadius, yCenter - innerRadius, innerRadius * 2,
-                innerRadius * 2);
+            innerRadius * 2);
         Shape outer = new Arc2D.Double(xCenter - outerRadius, yCenter - outerRadius, diameter, diameter, 90 - degrees,
-                degrees, Arc2D.PIE);
+            degrees, Arc2D.PIE);
 
         Area area = new Area(outer);
-        // This area is now the circle, with a width of BAR_WIDTH and a transparent
+        // This area is now the circle, with a width of BAR_WIDTH and a
+        // transparent
         // center.
         area.subtract(new Area(inner));
 
