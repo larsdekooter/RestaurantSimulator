@@ -50,6 +50,11 @@ public class RestaurantController {
         this.succesDialog = new SuccesDialog();
         this.seatingCustomer = -1;
 
+        assignListeners();
+
+    }
+
+    private void assignListeners() {
         view.getStove().addActionListener((e) -> {
             foodSelectionContainer.setVisible(true);
             foodSelectionContainer.setFoodType(FoodType.Stove);
@@ -186,14 +191,15 @@ public class RestaurantController {
         customerContainer.setLocationRelativeTo(table);
     }
 
-    public void setRectangularStoveProgress(int progress) {
+    public void setStoveProgress(int progress) {
         view.setStoveProgress(progress);
     }
 
-    public void setCircularStoveProgress(int progress) {
+    public void setFurnaceProgress(int progress) {
         view.setFurnaceProgress(progress);
     }
 
+    // Handles when the user selects a food in the furnace / stove UI.
     public void handleFoodSelection(ListSelectionEvent e) {
         int foodIndex = foodSelectionContainer.getFoodList().getSelectedIndex();
         if (foodIndex < 0) {
@@ -221,6 +227,7 @@ public class RestaurantController {
                 return;
             }
             foodSelectionContainer.dispose();
+            // Create a timer for cooking the food
             Timer swingTimer = new Timer(ANIMATION_DURATION, new ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -249,6 +256,7 @@ public class RestaurantController {
         inventoryContainer.updateList(model.getInventory());
     }
 
+    // Show a succes message on certain input, for the User Experience
     public void succes(String message, Component component) {
         succesDialog.label.setText(message);
         succesDialog.setVisible(true);

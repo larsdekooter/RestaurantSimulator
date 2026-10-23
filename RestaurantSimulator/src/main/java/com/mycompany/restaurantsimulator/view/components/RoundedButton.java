@@ -10,14 +10,11 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Stroke;
 import java.awt.geom.RoundRectangle2D;
-import java.beans.BeanProperty;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
 /**
  * https://stackoverflow.com/questions/8515601/java-swing-rounded-border-for-jtextfield
- * 
- * @author lars
  */
 public class RoundedButton extends JButton {
 
@@ -78,6 +75,7 @@ public class RoundedButton extends JButton {
         setContentAreaFilled(false);
     }
 
+    // Instead of drawing a normal Rect, draw a RoundRect
     @Override
     protected void paintComponent(Graphics g) {
         if (!this.fill) {
@@ -89,6 +87,7 @@ public class RoundedButton extends JButton {
         super.paintComponent(g);
     }
 
+    // Instead of drawing a normal Rect, draw a RoundRect
     @Override
     protected void paintBorder(Graphics g) {
         if (!this.isBorderPainted()) {
@@ -106,6 +105,7 @@ public class RoundedButton extends JButton {
         g2.setStroke(oldStroke);
     }
 
+    // Overwriting method used internally by Java Swing
     @Override
     public boolean contains(Point p) {
         if (this.shape == null || !this.shape.getBounds().equals(getBounds())) {
@@ -124,7 +124,6 @@ public class RoundedButton extends JButton {
         repaint();
     }
 
-    @BeanProperty(preferred = false, visualUpdate = true, description = "The cursor on hover")
     public void setCursor(CursorType type) {
         this.setCursor(Cursor.getPredefinedCursor(type.getType()));
     }

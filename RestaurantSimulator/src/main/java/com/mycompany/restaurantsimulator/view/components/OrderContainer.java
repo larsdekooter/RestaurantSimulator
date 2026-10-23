@@ -79,6 +79,7 @@ public class OrderContainer extends javax.swing.JDialog implements WindowListene
         pack();
     }
 
+    // Shows the correct order for the chosen table
     private void updateTableSelection(java.awt.event.ActionEvent evt) {
         int selectedIndex = jComboBox2.getSelectedIndex() + 1;
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();

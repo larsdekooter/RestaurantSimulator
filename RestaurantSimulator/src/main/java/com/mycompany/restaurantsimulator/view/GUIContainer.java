@@ -57,7 +57,7 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     public JButton getNewCustomersButton() {
-        return jButton2;
+        return newCustomerButton;
     }
 
     /**
@@ -105,7 +105,7 @@ public class GUIContainer extends javax.swing.JFrame {
     private void initComponents() {
 
         imagePanel2 = new ImagePanel();
-        jButton2 = new javax.swing.JButton();
+        newCustomerButton = new javax.swing.JButton();
         roundedButton3 = new RoundedButton();
         stove = new RoundedButton();
         table1 = new TableButton(1);
@@ -137,12 +137,12 @@ public class GUIContainer extends javax.swing.JFrame {
         imagePanel2.setOpaque(false);
         imagePanel2.setPreferredSize(new java.awt.Dimension(1300, 797));
 
-        jButton2.setIcon(new ImageIcon(getClass().getResource(
+        newCustomerButton.setIcon(new ImageIcon(getClass().getResource(
             "/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        newCustomerButton.setBorderPainted(false);
+        newCustomerButton.setContentAreaFilled(false);
+        newCustomerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newCustomerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 GlobalEvents.growButton(evt);
             }
@@ -275,7 +275,7 @@ public class GUIContainer extends javax.swing.JFrame {
                         .addPreferredGap(
                             javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228,
                             Short.MAX_VALUE)
-                        .addComponent(jButton2).addGap(26, 26, 26))
+                        .addComponent(newCustomerButton).addGap(26, 26, 26))
                 .addGroup(
                     imagePanel2Layout.createSequentialGroup().addGap(
                         20, 20, 20).addComponent(roundedButton3,
@@ -313,7 +313,7 @@ public class GUIContainer extends javax.swing.JFrame {
                 .addComponent(profitLabel, GroupLayout.PREFERRED_SIZE, 20,
                     GroupLayout.PREFERRED_SIZE)
                 .addGroup(imagePanel2Layout.createSequentialGroup().addGap(121, 121, 121)
-                    .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 105,
+                    .addComponent(newCustomerButton, GroupLayout.PREFERRED_SIZE, 105,
                         GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                 .addGroup(imagePanel2Layout.createSequentialGroup()
@@ -391,7 +391,7 @@ public class GUIContainer extends javax.swing.JFrame {
 
     private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
     private com.mycompany.restaurantsimulator.view.components.RoundedButton stove;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton newCustomerButton;
     private com.mycompany.restaurantsimulator.view.components.TableButton table1;
     private com.mycompany.restaurantsimulator.view.components.TableButton table5;
     private com.mycompany.restaurantsimulator.view.components.TableButton table6;

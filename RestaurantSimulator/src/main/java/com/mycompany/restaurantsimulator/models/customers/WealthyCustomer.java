@@ -10,6 +10,7 @@ public class WealthyCustomer extends Customer {
         super(id, partySize);
     }
 
+    // Only orders the most expensive items of the menu
     @Override
     public MenuItem[] makeNewOrder(Menu menu) {
         MenuItem[] order = new MenuItem[partySize * 2];
@@ -25,6 +26,7 @@ public class WealthyCustomer extends Customer {
         return order;
     }
 
+    // 100% tip
     @Override
     public double calculateCheck() {
         if (!receivedOrder) {

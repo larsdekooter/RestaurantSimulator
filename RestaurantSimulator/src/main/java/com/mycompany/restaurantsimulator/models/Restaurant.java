@@ -9,7 +9,6 @@ import com.mycompany.restaurantsimulator.models.menuItems.Drink;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import com.mycompany.restaurantsimulator.models.stoves.Stove;
-
 import java.util.*;
 
 public class Restaurant {
@@ -35,24 +34,27 @@ public class Restaurant {
         setupCustomers();
     }
 
+    // Generate 1000 customers, varying between the average and impatient
+    // customer
     private void setupCustomers() {
         for (int i = 0; i < this.customers.length; i++) {
             switch (i % 3) {
-            case 0:
-                customers[i] = new AverageCustomer(i, i + 1);
-                break;
-            case 1:
-                customers[i] = new ImpatientCustomer(i, i);
-                break;
-            case 2:
-                customers[i] = new WealthyCustomer(i, i);
-                break;
-            default:
-                customers[i] = new AverageCustomer(i, i);
+                case 0:
+                    customers[i] = new AverageCustomer(i, i + 1);
+                    break;
+                case 1:
+                    customers[i] = new ImpatientCustomer(i, i);
+                    break;
+                case 2:
+                    customers[i] = new WealthyCustomer(i, i);
+                    break;
+                default:
+                    customers[i] = new AverageCustomer(i, i);
             }
         }
     }
 
+    // Create all the tables
     private void createTables() {
         for (int i = 0; i < tables.length - 1; i++) {
             tables[i] = new Table(i + 1, i + 1);
@@ -87,6 +89,7 @@ public class Restaurant {
         return customers;
     }
 
+    // Remove the customer from the restaurant
     public void settleTable(int tableId) {
         Table table = getTable(tableId);
         profit += table.customer.calculateCheck();
@@ -96,6 +99,7 @@ public class Restaurant {
         table.customer = null;
     }
 
+    // Add customer to restaurant
     public boolean addCustomer(Customer customer) {
         if (customer == null || customer.id == -1 || customers[customer.id] != null) {
             return false;
@@ -116,6 +120,7 @@ public class Restaurant {
         this.stove = stove;
     }
 
+    // Assign a customer to a table
     public boolean seatCustomer(int customerId, int tableId) {
         Customer customer = Arrays.stream(customers)
             .filter(c -> c != null && c.id == customerId).findFirst().orElse(null);
@@ -123,16 +128,18 @@ public class Restaurant {
         Table table = Arrays.stream(tables).filter(t -> t.id == tableId).findFirst()
             .orElse(null);
 
-        if (customer == null || table == null)
+        if (customer == null || table == null) {
             return false;
+        }
 
         return table.seatCustomers(customer);
     }
 
     public int nextCustomerId() {
         for (int i = 0; i < customers.length; i++) {
-            if (customers[i] == null)
+            if (customers[i] == null) {
                 return i;
+            }
         }
         return -1;
     }
@@ -163,8 +170,9 @@ public class Restaurant {
 
     public void removeItemFromInventory(MenuItem item) {
         int index = getItemIndexInInventory(item);
-        if (index > -1)
+        if (index > -1) {
             inventory.remove(index);
+        }
     }
 
     public ArrayList<MenuItem> getInventory() {
@@ -183,6 +191,7 @@ public class Restaurant {
         return next;
     }
 
+    // Check if the entire order is ready for the table
     public boolean checkReadyToServe(int tableNumber) {
         Order order = orders.get(tableNumber);
         if (order == null) {

@@ -7,6 +7,7 @@ public class ImpatientCustomer extends Customer {
         super(id, partySize);
     }
 
+    // No tip
     @Override
     public double calculateCheck() {
         if (!receivedOrder) {

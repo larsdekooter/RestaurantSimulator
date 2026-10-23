@@ -23,6 +23,7 @@ public class ProgressCircleUI extends BasicProgressBarUI {
     private double outerRadius;
     private double innerRadius;
 
+    // Calculates the multtplier based on the wanted BAR_WIDTH
     public void calculateMultiplier() {
         int diameter = Math.min(progressBar.getWidth(), progressBar.getHeight());
         if (diameter == 0) {

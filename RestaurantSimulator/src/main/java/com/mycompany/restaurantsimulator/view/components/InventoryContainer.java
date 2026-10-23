@@ -42,6 +42,7 @@ public class InventoryContainer extends javax.swing.JDialog {
         pack();
     }
 
+    // Repopulates the list
     public void updateList(ArrayList<MenuItem> items) {
         DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
         model.clear();

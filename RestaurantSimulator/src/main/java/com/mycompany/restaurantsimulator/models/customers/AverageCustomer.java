@@ -5,6 +5,7 @@ public class AverageCustomer extends Customer {
         super(id, partySize);
     }
 
+    // 10 percent tip
     @Override
     public double calculateCheck() {
         if (!receivedOrder) {
