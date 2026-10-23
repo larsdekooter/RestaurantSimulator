@@ -2,5 +2,12 @@
   "maven.view": "hierarchical",
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.checkstyle.configuration": "${workspaceFolder}\\2IP90_checks.xml",
-  "java.checkstyle.version": "14.3.0"
+  "java.checkstyle.version": "14.3.0",
+  "[java]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false
+  },
+  "java.format.settings.url": ".vscode/eclipse-formatter.xml",
+  "java.format.settings.profile": "CustomJavaStyle"
 }
