@@ -4,13 +4,13 @@ import com.mycompany.restaurantsimulator.models.customers.AverageCustomer;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
 import com.mycompany.restaurantsimulator.models.customers.ImpatientCustomer;
 import com.mycompany.restaurantsimulator.models.customers.WealthyCustomer;
+import com.mycompany.restaurantsimulator.models.enums.FoodType;
+import com.mycompany.restaurantsimulator.models.menuItems.Drink;
+import com.mycompany.restaurantsimulator.models.menuItems.Food;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import com.mycompany.restaurantsimulator.models.stoves.Stove;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Restaurant {
     private String name;
@@ -175,5 +175,51 @@ public class Restaurant {
             }
         }
         return next;
+    }
+
+    public boolean checkReadyToServe(int tableNumber) {
+        Order order = orders.get(tableNumber);
+        if (order == null) {
+            return false;
+        }
+
+        for (int i = 0; i < order.items.length; i++) {
+            MenuItem item = order.items[i];
+            if (item.getClass() == Drink.class) continue;
+            if (item.getClass() == Food.class
+                    && (((Food) item).getFoodType() == FoodType.All
+                    || ((Food) item).getFoodType() == FoodType.Cold)) continue;
+
+            int amountInOrder = Math.toIntExact(Arrays.stream(order.items).filter(orderItem -> orderItem.name.equals(item.name)).count());
+            int amountInInventory = Math.toIntExact(inventory.stream().filter(inventoryItem -> inventoryItem.name.equals(item.name)).count());
+
+            if (amountInOrder > amountInInventory) return false;
+
+            i += amountInOrder;
+        }
+        return true;
+    }
+
+    public ArrayList<MenuItem> getInventory() {
+        return inventory;
+    }
+
+    public void serveTable(int tableNumber) {
+        Order order =  orders.get(tableNumber);
+
+        for (int j = 0; j < order.items.length; j++) {
+            MenuItem item = order.items[j];
+            if (item.getClass() == Drink.class) continue;
+            if (item.getClass() == Food.class && (((Food) item).getFoodType() == FoodType.All || ((Food) item).getFoodType() == FoodType.Cold)) continue;
+
+            removeItemFromInventory(item);
+        }
+
+        Table table =  getTable(tableNumber);
+        table.customer.receivedOrder = true;
+    }
+
+    public double getProfit() {
+        return profit;
     }
 }

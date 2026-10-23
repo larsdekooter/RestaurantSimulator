@@ -10,11 +10,13 @@ public abstract class Customer {
     public int partySize;
     public Order order;
     public boolean seated;
+    public boolean receivedOrder;
 
     public Customer(int id, int partySize) {
         this.id = id;
         this.partySize = partySize;
         seated = false;
+        receivedOrder = false;
     }
 
     /// Return the customer's order

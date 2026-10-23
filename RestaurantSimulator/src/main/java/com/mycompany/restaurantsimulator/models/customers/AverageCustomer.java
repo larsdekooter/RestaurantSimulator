@@ -7,6 +7,7 @@ public class AverageCustomer extends Customer {
 
     @Override
     public double calculateCheck() {
+        if(!receivedOrder) return 0.0;
         return order.calculatePrice() * 1.10;
     }
 }

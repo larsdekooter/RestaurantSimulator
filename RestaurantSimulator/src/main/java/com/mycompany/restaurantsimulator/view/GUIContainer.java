@@ -372,7 +372,7 @@ public class GUIContainer extends javax.swing.JFrame {
     private com.mycompany.restaurantsimulator.view.components.RoundedButton furnace;
     private javax.swing.JProgressBar furnaceProgressBar;
     private javax.swing.JLayeredPane furnacePane;
-    private int profit = 0;
+    private double profit = 0;
     private JLabel profitLabel;
 
     public void turnTableGreen(int id) {
@@ -403,8 +403,13 @@ public class GUIContainer extends javax.swing.JFrame {
         tableButton.setForeground(new java.awt.Color(0, 0, 0));
     }
 
-    public void setProfit(int profit) {
+    public void setProfit(double profit) {
         this.profit = profit;
+        updateProfit();
+    }
+
+    private void updateProfit() {
+        profitLabel.setText("€" + profit);
     }
 
     public void setCookingProgress(int progress, FoodType foodType) {

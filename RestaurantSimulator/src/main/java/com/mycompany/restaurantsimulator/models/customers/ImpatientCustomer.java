@@ -9,6 +9,7 @@ public class ImpatientCustomer extends Customer {
 
     @Override
     public double calculateCheck() {
+        if (!receivedOrder) return 0.0;
         return order.calculatePrice();
     }
 }

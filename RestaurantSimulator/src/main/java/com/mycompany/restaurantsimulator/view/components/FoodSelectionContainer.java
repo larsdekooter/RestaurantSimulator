@@ -10,6 +10,8 @@ package com.mycompany.restaurantsimulator.view.components;
 import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.enums.FoodType;
 import com.mycompany.restaurantsimulator.models.menuItems.Food;
+import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
+
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +30,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger
         .getLogger(FoodSelectionContainer.class.getName());
 
-    private ArrayList<Food> menuItems = new ArrayList<>();
+    private ArrayList<MenuItem> menuItems = new ArrayList<>();
     private FoodType foodType;
 
     /**
@@ -39,6 +41,13 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         initComponents();
         menuItems.addAll(Arrays.asList(menu.foods));
         updateList(menuItems);
+    }
+
+    public FoodSelectionContainer(ArrayList<MenuItem> inventory) {
+        initComponents();
+        menuItems.addAll(inventory);
+        updateList(menuItems);
+
     }
 
     public FoodSelectionContainer() {
@@ -100,11 +109,11 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
-    private void updateList(ArrayList<Food> menuItems) {
+    private void updateList(ArrayList<MenuItem> menuItems) {
         DefaultListModel<String> model = (DefaultListModel<String>) foodList.getModel();
         model.clear();
-        for (Food food : menuItems) {
-            model.addElement(food.name);
+        for (MenuItem item : menuItems) {
+            model.addElement(item.name);
 
         }
     }
@@ -143,7 +152,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         return foodList;
     }
 
-    public ArrayList<Food> getMenuItems() {
+    public ArrayList<MenuItem> getMenuItems() {
         return menuItems;
     }
 

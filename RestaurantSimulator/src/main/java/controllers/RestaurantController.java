@@ -27,6 +27,7 @@ public class RestaurantController {
 
     public Restaurant model;
     public FoodSelectionContainer foodSelectionContainer;
+    public FoodSelectionContainer inventoryContainer;
     public OrderContainer orderContainer;
     public GUIContainer view;
     public CustomerContainer customerContainer;
@@ -38,6 +39,7 @@ public class RestaurantController {
         this.model = model;
         this.view = view;
         this.foodSelectionContainer = new FoodSelectionContainer(model.getMenu());
+        this.inventoryContainer = new FoodSelectionContainer(model.getInventory());
         this.orderContainer = new OrderContainer(model.getTables().length);
         this.customerContainer = new CustomerContainer(view);
         this.seatingCustomer = -1;
@@ -56,6 +58,8 @@ public class RestaurantController {
         view.getOrderButton().addActionListener((e) -> orderContainer.setVisible(true));
 
         customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
+        customerContainer.getServeFoodButton().addActionListener(this::serveFood);
+        customerContainer.getServeCheckButton().addActionListener(this::serveCheck);
 
         for (TableButton table : view.getTables()) {
             table.addActionListener(e -> tableClicked(e, table));
@@ -67,6 +71,31 @@ public class RestaurantController {
                 handleFoodSelection(e);
             }
         });
+    }
+
+    private void serveCheck(ActionEvent actionEvent) {
+        int tableNumber = customerContainer.tableNumber;
+        model.settleTable(tableNumber);
+        customerContainer.hideDialog();
+        view.setProfit(model.getProfit());
+    }
+
+    private void serveFood(ActionEvent actionEvent) {
+        int tableNumber = customerContainer.tableNumber;
+        Table table = model.getTable(tableNumber);
+
+        if (table == null) {
+            throw new Error("No table found!");
+        }
+
+        boolean ready = model.checkReadyToServe(tableNumber);
+
+        if (!ready) {
+            Toolkit.getDefaultToolkit().beep();
+        } else {
+            model.serveTable(tableNumber);
+            customerContainer.hideDialog();
+        }
     }
 
     private void seatCustomer(ActionEvent e) {
@@ -125,8 +154,6 @@ public class RestaurantController {
         customerContainer.openTableView(clickedTable);
         view.setEnabled(false);
         customerContainer.setLocationRelativeTo(table);
-
-        customerContainer.getServeCheckButton().addActionListener((e) -> model.settleTable(table.getTableNumber()));
     }
 
     public void setRectangularStoveProgress(int progress) {
@@ -142,7 +169,7 @@ public class RestaurantController {
         if (foodIndex < 0)
             return;
         try {
-            Food selectedFood = foodSelectionContainer.getMenuItems().get(foodIndex);
+            Food selectedFood = (Food) foodSelectionContainer.getMenuItems().get(foodIndex);
             Stove cooker;
             switch (foodSelectionContainer.getFoodType()) {
             case FoodType.Stove:

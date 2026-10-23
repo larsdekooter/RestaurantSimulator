@@ -33,7 +33,7 @@ public class Stove {
      */
     public int getPercentageDone() {
         if (this.cooking == null) {
-            return 100;
+            return 0;
         }
         return (int) Math.round((this.timeCooking * 100.0) / this.cooking.getCookingTime());
     }
