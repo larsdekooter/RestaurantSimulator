@@ -5,10 +5,6 @@ import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
-/**
- *
- * @author lars
- */
 public class InventoryContainer extends javax.swing.JDialog {
 
     /**
