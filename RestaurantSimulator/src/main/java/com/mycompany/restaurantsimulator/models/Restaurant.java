@@ -38,17 +38,17 @@ public class Restaurant {
     private void setupCustomers() {
         for (int i = 0; i < this.customers.length; i++) {
             switch (i % 3) {
-                case 0:
-                    customers[i] = new AverageCustomer(i, i + 1);
-                    break;
-                case 1:
-                    customers[i] = new ImpatientCustomer(i, i);
-                    break;
-                case 2:
-                    customers[i] = new WealthyCustomer(i, i);
-                    break;
-                default:
-                    customers[i] = new AverageCustomer(i, i);
+            case 0:
+                customers[i] = new AverageCustomer(i, i + 1);
+                break;
+            case 1:
+                customers[i] = new ImpatientCustomer(i, i);
+                break;
+            case 2:
+                customers[i] = new WealthyCustomer(i, i);
+                break;
+            default:
+                customers[i] = new AverageCustomer(i, i);
             }
         }
     }
@@ -165,9 +165,13 @@ public class Restaurant {
             inventory.remove(index);
     }
 
+    public ArrayList<MenuItem> getInventory() {
+        return this.inventory;
+    }
+
     public Customer getNextCustomer() {
         Customer next = null;
-        for(Customer customer : customers) {
+        for (Customer customer : customers) {
             if (!customer.seated) {
                 next = customer;
                 customer.seated = true;
