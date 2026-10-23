@@ -4,12 +4,43 @@ import com.mycompany.restaurantsimulator.models.menuItems.Food;
 
 public class Stove {
     public int id;
-    public Food cooking; //Can be null
+    public Food cooking; // Can be null
     public int timeCooking;
 
     public Stove(int id, Food cooking, int timeCooking) {
         this.id = id;
         this.cooking = cooking;
         this.timeCooking = timeCooking;
+    }
+
+    public boolean setCooking(Food cooking) {
+        if (this.cooking != null && this.timeCooking != this.cooking.getCookingTime())
+            // If the current food is not done cooking yet, don't set the food
+            return false;
+        this.cooking = cooking;
+        return true;
+    }
+
+    /**
+     * Get the percentage of cooking time
+     * 
+     * @return The percentage as 0-100
+     */
+    public int getPercentageDone() {
+        if (this.cooking == null) {
+            return 100;
+        }
+        return (int) Math.round((this.timeCooking * 100.0) / this.cooking.getCookingTime());
+    }
+
+    public boolean checkTimer() {
+        return timeCooking >= this.cooking.getCookingTime();
+    }
+
+    /**
+     * Adds a second to the time the food is cooking
+     */
+    public void addSecond() {
+        this.timeCooking++;
     }
 }

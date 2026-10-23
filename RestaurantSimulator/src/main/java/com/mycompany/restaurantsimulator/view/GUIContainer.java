@@ -16,6 +16,8 @@ import com.mycompany.restaurantsimulator.view.components.RoundedButton;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
 import com.mycompany.restaurantsimulator.view.ui.ProgressCircleUI;
 import com.mycompany.restaurantsimulator.models.GlobalEvents;
+import com.mycompany.restaurantsimulator.models.enums.FoodType;
+import com.mycompany.restaurantsimulator.models.stoves.Stove;
 
 import java.util.Arrays;
 
@@ -31,8 +33,8 @@ import java.util.Arrays;
  */
 public class GUIContainer extends javax.swing.JFrame {
 
-    private int stove1Progress = 0;
-    private int stove2progress = 0;
+    private int stoveProgress = 0;
+    private int furnaceProgress = 0;
 
     /**
      * Creates new form GUIContainer
@@ -45,20 +47,20 @@ public class GUIContainer extends javax.swing.JFrame {
         setTitle("Restaurant Simulator");
     }
 
-    public JButton getStove1() {
-        return stove1;
+    public JButton getStove() {
+        return stove;
     }
 
-    public JButton getStove2() {
-        return stove2;
+    public JButton getFurnace() {
+        return furnace;
     }
 
     public RoundedButton getOrderButton() {
         return roundedButton3;
     }
 
-    public JProgressBar getStove1ProgressBar() {
-        return this.stove1ProgressBar;
+    public JProgressBar getStoveProgressBar() {
+        return this.stoveProgressBar;
     }
 
     public TableButton[] getTables() {
@@ -74,9 +76,9 @@ public class GUIContainer extends javax.swing.JFrame {
      *
      * @param progress Between 0-100
      */
-    public void setStove1Progress(int progress) {
-        this.stove1ProgressBar.setValue(progress);
-        this.stove1Progress = progress;
+    public void setStoveProgress(int progress) {
+        this.stoveProgressBar.setValue(progress);
+        this.stoveProgress = progress;
     }
 
     /**
@@ -84,9 +86,9 @@ public class GUIContainer extends javax.swing.JFrame {
      *
      * @param progress Between 0-100
      */
-    public void setStove2Progress(int progress) {
-        this.stove2ProgressBar.setValue(progress);
-        this.stove2progress = progress;
+    public void setFurnaceProgress(int progress) {
+        this.furnaceProgressBar.setValue(progress);
+        this.furnaceProgress = progress;
     }
 
     /**
@@ -94,8 +96,8 @@ public class GUIContainer extends javax.swing.JFrame {
      *
      * @return The progress, between 0-100
      */
-    public int getStove1Progress() {
-        return this.stove1Progress;
+    public int getStoveProgress() {
+        return this.stoveProgress;
     }
 
     /**
@@ -104,7 +106,7 @@ public class GUIContainer extends javax.swing.JFrame {
      * @return The progress, between 0-100
      */
     public int getStove2Progress() {
-        return this.stove2progress;
+        return this.furnaceProgress;
     }
 
     /**
@@ -134,7 +136,7 @@ public class GUIContainer extends javax.swing.JFrame {
         imagePanel2 = new ImagePanel();
         jButton2 = new javax.swing.JButton();
         roundedButton3 = new RoundedButton();
-        stove1 = new RoundedButton();
+        stove = new RoundedButton();
         table1 = new TableButton(1);
         table2 = new TableButton(2);
         table3 = new TableButton(3);
@@ -144,10 +146,10 @@ public class GUIContainer extends javax.swing.JFrame {
         table7 = new TableButton(7);
         table8 = new TableButton(8);
         table9 = new TableButton(9);
-        stove2 = new RoundedButton();
-        stove1ProgressBar = new JProgressBar();
-        stove2ProgressBar = new JProgressBar();
-        stove2Pane = new JLayeredPane();
+        furnace = new RoundedButton();
+        stoveProgressBar = new JProgressBar();
+        furnaceProgressBar = new JProgressBar();
+        furnacePane = new JLayeredPane();
         profitLabel = new JLabel();
 
         tables = new TableButton[] { table1, table2, table3, table4, table5, table6, table8, table9 };
@@ -193,14 +195,14 @@ public class GUIContainer extends javax.swing.JFrame {
             }
         });
 
-        stove1.setBorderPainted(true);
-        stove1.setContentAreaFilled(false);
-        stove1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        stove1.setBorderRadius(20);
-        stove1.setForeground(new java.awt.Color(0, 0, 0));
-        stove1.setBorderWidth(4);
-        stove1.setFill(false);
-        stove1.addMouseListener(new java.awt.event.MouseAdapter() {
+        stove.setBorderPainted(true);
+        stove.setContentAreaFilled(false);
+        stove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        stove.setBorderRadius(20);
+        stove.setForeground(new java.awt.Color(0, 0, 0));
+        stove.setBorderWidth(4);
+        stove.setFill(false);
+        stove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 GlobalEvents.growButton(evt);
             }
@@ -210,17 +212,17 @@ public class GUIContainer extends javax.swing.JFrame {
             }
         });
 
-        stove2.setBorderPainted(true);
-        stove2.setContentAreaFilled(false);
-        stove2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        stove2.setBorderRadius(500);
-        stove2.setForeground(new java.awt.Color(255, 0, 0));
-        stove2.setBorderWidth(4);
-        stove2.setFill(false);
-        stove2.setPreferredSize(new Dimension(140, 140));
-        stove2.setSize(new Dimension(140, 140));
-        stove2.setBounds(5, 5, 140, 140);
-        stove2.addMouseListener(new java.awt.event.MouseAdapter() {
+        furnace.setBorderPainted(true);
+        furnace.setContentAreaFilled(false);
+        furnace.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        furnace.setBorderRadius(500);
+        furnace.setForeground(new java.awt.Color(255, 0, 0));
+        furnace.setBorderWidth(4);
+        furnace.setFill(false);
+        furnace.setPreferredSize(new Dimension(140, 140));
+        furnace.setSize(new Dimension(140, 140));
+        furnace.setBounds(5, 5, 140, 140);
+        furnace.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 GlobalEvents.growButton(evt);
             }
@@ -229,22 +231,22 @@ public class GUIContainer extends javax.swing.JFrame {
                 GlobalEvents.shrinkButton(evt);
             }
         });
-        stove2.setOpaque(false);
+        furnace.setOpaque(false);
 
-        stove2ProgressBar.setUI(new ProgressCircleUI());
-        stove2ProgressBar.setSize(150, 150);
-        stove2ProgressBar.setValue(100);
-        stove2ProgressBar.setMaximum(100);
-        stove2ProgressBar.setForeground(new java.awt.Color(0, 255, 0));
-        stove2ProgressBar.setBorderPainted(false);
+        furnaceProgressBar.setUI(new ProgressCircleUI());
+        furnaceProgressBar.setSize(150, 150);
+        furnaceProgressBar.setValue(0);
+        furnaceProgressBar.setMaximum(100);
+        furnaceProgressBar.setForeground(new java.awt.Color(0, 255, 0));
+        furnaceProgressBar.setBorderPainted(false);
         // stove2ProgressBar.setBounds(0, 5, 140, 140);
 
-        stove2Pane.setPreferredSize(new Dimension(160, 160));
-        stove2Pane.setOpaque(false);
-        stove2Pane.setBorder(null);
+        furnacePane.setPreferredSize(new Dimension(160, 160));
+        furnacePane.setOpaque(false);
+        furnacePane.setBorder(null);
         // stove2Pane.setoutline
-        stove2Pane.add(stove2, 2, 0);
-        stove2Pane.add(stove2ProgressBar, 1, 0);
+        furnacePane.add(furnace, 2, 0);
+        furnacePane.add(furnaceProgressBar, 1, 0);
 
         profitLabel.setText("€" + profit);
         profitLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -280,13 +282,13 @@ public class GUIContainer extends javax.swing.JFrame {
                 .addComponent(table1, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.UNRELATED)
                 .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(stove1, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stove1ProgressBar, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stove, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stoveProgressBar, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
                 .addGap(407, 407, 407))
             .addGroup(imagePanel2Layout.createSequentialGroup()
                 // .addContainerGap(GroupLayout.DEFAULT_SIZE,
                 // Short.MAX_VALUE)
-                .addGap(587, 587, 587).addComponent(stove2Pane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE,
+                .addGap(587, 587, 587).addComponent(furnacePane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE,
                     GroupLayout.PREFERRED_SIZE)));
 
         imagePanel2Layout.setVerticalGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -308,8 +310,8 @@ public class GUIContainer extends javax.swing.JFrame {
                                     .addComponent(table7, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))))
                         .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(imagePanel2Layout.createSequentialGroup().addGap(107, 107, 107)
-                                .addComponent(stove1, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(stove1ProgressBar))
+                                .addComponent(stove, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(stoveProgressBar))
                             .addGroup(imagePanel2Layout.createSequentialGroup().addGap(47, 47, 47)
                                 .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                     .addComponent(table1, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
@@ -318,7 +320,7 @@ public class GUIContainer extends javax.swing.JFrame {
                                         GroupLayout.PREFERRED_SIZE))))))
                 .addGap(120, 120, 120)
                 .addComponent(
-                    stove2Pane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+                    furnacePane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(table8, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
@@ -354,7 +356,7 @@ public class GUIContainer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.mycompany.restaurantsimulator.view.components.ImagePanel imagePanel2;
-    private com.mycompany.restaurantsimulator.view.components.RoundedButton stove1;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton stove;
     private javax.swing.JButton jButton2;
     private com.mycompany.restaurantsimulator.view.components.TableButton table1;
     private com.mycompany.restaurantsimulator.view.components.TableButton table5;
@@ -366,12 +368,12 @@ public class GUIContainer extends javax.swing.JFrame {
     private com.mycompany.restaurantsimulator.view.components.TableButton table2;
     private com.mycompany.restaurantsimulator.view.components.TableButton table3;
     private com.mycompany.restaurantsimulator.view.components.TableButton table4;
-    private javax.swing.JProgressBar stove1ProgressBar;
+    private javax.swing.JProgressBar stoveProgressBar;
     private TableButton[] tables;
-    private com.mycompany.restaurantsimulator.view.components.RoundedButton stove2;
-    private javax.swing.JProgressBar stove2ProgressBar;
-    private javax.swing.JLayeredPane stove2Pane;
-    private int profit = 20000;
+    private com.mycompany.restaurantsimulator.view.components.RoundedButton furnace;
+    private javax.swing.JProgressBar furnaceProgressBar;
+    private javax.swing.JLayeredPane furnacePane;
+    private int profit = 0;
     private JLabel profitLabel;
 
     public void turnTableGreen(int id) {
@@ -403,6 +405,19 @@ public class GUIContainer extends javax.swing.JFrame {
 
     public void setProfit(int profit) {
         this.profit = profit;
+    }
+
+    public void setCookingProgress(int progress, FoodType foodType) {
+        switch (foodType) {
+        case FoodType.Stove:
+            setStoveProgress(progress);
+            break;
+        case FoodType.Furnace:
+            setFurnaceProgress(progress);
+            break;
+        default:
+            break;
+        }
     }
 
     // End of variables declaration//GEN-END:variables

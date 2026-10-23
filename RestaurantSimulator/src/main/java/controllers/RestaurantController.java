@@ -1,18 +1,27 @@
 package controllers;
 
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import com.mycompany.restaurantsimulator.models.Menu;
 import com.mycompany.restaurantsimulator.models.Restaurant;
 import com.mycompany.restaurantsimulator.models.Table;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
 import com.mycompany.restaurantsimulator.models.customers.WealthyCustomer;
 import com.mycompany.restaurantsimulator.models.enums.FoodType;
+import com.mycompany.restaurantsimulator.models.menuItems.Food;
+import com.mycompany.restaurantsimulator.models.stoves.Furnace;
+import com.mycompany.restaurantsimulator.models.stoves.Stove;
 import com.mycompany.restaurantsimulator.view.GUIContainer;
 import com.mycompany.restaurantsimulator.view.components.CustomerContainer;
 import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
 import com.mycompany.restaurantsimulator.view.components.OrderContainer;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 
 public class RestaurantController {
 
@@ -22,6 +31,8 @@ public class RestaurantController {
     public GUIContainer view;
     public CustomerContainer customerContainer;
     private int seatingCustomer;
+    private Stove stove = new Stove(0, null, 0);
+    private Furnace furnace = new Furnace(1, null, 0);
 
     public RestaurantController(Restaurant model, GUIContainer view) {
         this.model = model;
@@ -31,11 +42,11 @@ public class RestaurantController {
         this.customerContainer = new CustomerContainer(view);
         this.seatingCustomer = -1;
 
-        view.getStove1().addActionListener((e) -> {
+        view.getStove().addActionListener((e) -> {
             foodSelectionContainer.setVisible(true);
             foodSelectionContainer.setFoodType(FoodType.Stove);
         });
-        view.getStove2().addActionListener((e) -> {
+        view.getFurnace().addActionListener((e) -> {
             foodSelectionContainer.setVisible(true);
             foodSelectionContainer.setFoodType(FoodType.Furnace);
         });
@@ -49,6 +60,13 @@ public class RestaurantController {
         for (TableButton table : view.getTables()) {
             table.addActionListener(e -> tableClicked(e, table));
         }
+
+        foodSelectionContainer.getFoodList().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                handleFoodSelection(e);
+            }
+        });
     }
 
     private void seatCustomer(ActionEvent e) {
@@ -122,11 +140,51 @@ public class RestaurantController {
     }
 
     public void setRectangularStoveProgress(int progress) {
-        view.setStove1Progress(progress);
+        view.setStoveProgress(progress);
     }
 
     public void setCircularStoveProgress(int progress) {
-        view.setStove2Progress(progress);
+        view.setFurnaceProgress(progress);
     }
 
+    public void handleFoodSelection(ListSelectionEvent e) {
+        int foodIndex = foodSelectionContainer.getFoodList().getSelectedIndex();
+        if (foodIndex < 0)
+            return;
+        try {
+            Food selectedFood = foodSelectionContainer.getMenuItems().get(foodIndex);
+            Stove cooker;
+            switch (foodSelectionContainer.getFoodType()) {
+            case FoodType.Stove:
+                cooker = stove;
+
+                break;
+            case FoodType.Furnace:
+                cooker = furnace;
+                break;
+            default:
+                // Should never reach, but for typesafety
+                cooker = stove;
+                break;
+            }
+            boolean result = cooker.setCooking(selectedFood);
+            if (!result)
+                return;
+            foodSelectionContainer.dispose();
+            Timer swingTimer = new Timer(1000, new ActionListener() {
+                @Override
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    cooker.addSecond();
+                    view.setCookingProgress(cooker.getPercentageDone(), selectedFood.getFoodType());
+
+                    if (cooker.checkTimer()) {
+                        ((javax.swing.Timer) e.getSource()).stop();
+                    }
+                }
+            });
+            swingTimer.start();
+        } catch (IndexOutOfBoundsException exc) {
+            System.out.println(exc);
+        }
+    }
 }
