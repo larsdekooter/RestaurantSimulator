@@ -15,9 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.SwingConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -27,9 +26,10 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
 
     private Menu menu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger
-            .getLogger(FoodSelectionContainer.class.getName());
+        .getLogger(FoodSelectionContainer.class.getName());
 
     private ArrayList<Food> menuItems = new ArrayList<>();
+    private FoodType foodType;
 
     /**
      * Creates new form FoodSelection
@@ -52,6 +52,7 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
      * @param type
      */
     public void setFoodType(FoodType type) {
+        this.foodType = type;
         menuItems.clear();
         for (Food item : this.menu.foods) {
             if (item.getFoodType() == type) {
@@ -72,52 +73,35 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
     private void initComponents() {
         setPreferredSize(new Dimension(300, 300));
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        foodList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Food Selection");
 
-        jList1.setModel(new javax.swing.DefaultListModel<>());
-        jList1.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                int foodIndex = jList1.getSelectedIndex();
+        foodList.setModel(new javax.swing.DefaultListModel<>());
 
-                try {
-                    Food selectedFood = menu.foods[foodIndex];
-                    // TODO: Put on the stove
-                } catch (IndexOutOfBoundsException exc) {
-                    System.out.println(exc);
-                }
-
-            }
-        });
         updateList(menuItems);
 
-        DefaultListCellRenderer renderer = (DefaultListCellRenderer) jList1.getCellRenderer();
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) foodList.getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(foodList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup().addContainerGap()
-                                .addComponent(jScrollPane1)
-                                .addContainerGap()));
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jScrollPane1).addContainerGap()));
 
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup().addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                                .addContainerGap()));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup().addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap()));
 
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
     private void updateList(ArrayList<Food> menuItems) {
-        DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
+        DefaultListModel<String> model = (DefaultListModel<String>) foodList.getModel();
         model.clear();
         for (Food food : menuItems) {
             model.addElement(food.name);
@@ -130,13 +114,14 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
      */
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting
+        // code
         // (optional) ">
         /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.
+         * html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -154,8 +139,20 @@ public class FoodSelectionContainer extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FoodSelectionContainer().setVisible(true));
     }
 
+    public JList<String> getFoodList() {
+        return foodList;
+    }
+
+    public ArrayList<Food> getMenuItems() {
+        return menuItems;
+    }
+
+    public FoodType getFoodType() {
+        return foodType;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> foodList;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
