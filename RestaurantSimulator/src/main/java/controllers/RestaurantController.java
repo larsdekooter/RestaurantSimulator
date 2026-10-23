@@ -1,5 +1,6 @@
 package controllers;
 
+import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import com.mycompany.restaurantsimulator.view.components.CustomerContainer;
 import com.mycompany.restaurantsimulator.view.components.FoodSelectionContainer;
 import com.mycompany.restaurantsimulator.view.components.InventoryContainer;
 import com.mycompany.restaurantsimulator.view.components.OrderContainer;
+import com.mycompany.restaurantsimulator.view.components.SuccesDialog;
 import com.mycompany.restaurantsimulator.view.components.TableButton;
 
 public class RestaurantController {
@@ -33,6 +35,8 @@ public class RestaurantController {
     public GUIContainer view;
     public CustomerContainer customerContainer;
     public InventoryContainer inventoryContainer;
+    public SuccesDialog succesDialog;
+
     private int seatingCustomer;
     private Stove stove = new Stove(0, null, 0);
     private Furnace furnace = new Furnace(1, null, 0);
@@ -42,23 +46,29 @@ public class RestaurantController {
         this.view = view;
         this.foodSelectionContainer = new FoodSelectionContainer(model.getMenu());
         this.inventoryContainer = new InventoryContainer();
-        this.orderContainer = new OrderContainer(model.getTables().length);
+        this.orderContainer = new OrderContainer(model.getTables().length, view);
         this.customerContainer = new CustomerContainer(view);
         this.inventoryContainer = new InventoryContainer();
+        this.succesDialog = new SuccesDialog();
         this.seatingCustomer = -1;
 
         view.getStove().addActionListener((e) -> {
             foodSelectionContainer.setVisible(true);
             foodSelectionContainer.setFoodType(FoodType.Stove);
+            foodSelectionContainer.setLocationRelativeTo(view.getStove());
         });
         view.getFurnace().addActionListener((e) -> {
             foodSelectionContainer.setVisible(true);
             foodSelectionContainer.setFoodType(FoodType.Furnace);
+            foodSelectionContainer.setLocationRelativeTo(view.getFurnace());
         });
 
         view.getNewCustomersButton().addActionListener(this::seatCustomer);
 
-        view.getOrderButton().addActionListener((e) -> orderContainer.setVisible(true));
+        view.getOrderButton().addActionListener((e) -> {
+            orderContainer.setVisible(true);
+            view.setEnabled(false);
+        });
 
         customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
         customerContainer.getServeFoodButton().addActionListener(this::serveFood);
@@ -79,10 +89,13 @@ public class RestaurantController {
     }
 
     private void serveCheck(ActionEvent actionEvent) {
+        double prevProfit = model.getProfit();
         int tableNumber = customerContainer.tableNumber;
         model.settleTable(tableNumber);
         customerContainer.hideDialog();
         view.setProfit(model.getProfit());
+        succes("You recieved €" + String.format("%.2f", (double) (model.getProfit() - prevProfit)),
+            (Component) actionEvent.getSource());
     }
 
     private void serveFood(ActionEvent actionEvent) {
@@ -97,9 +110,13 @@ public class RestaurantController {
 
         if (!ready) {
             Toolkit.getDefaultToolkit().beep();
+            succesDialog.setTitle("ERROR!");
+            succes("The order is not yet ready!", (Component) actionEvent.getSource());
+            succesDialog.setTitle("Succes!");
         } else {
             model.serveTable(tableNumber);
             customerContainer.hideDialog();
+            succes("Served food!", (Component) actionEvent.getSource());
         }
     }
 
@@ -109,6 +126,8 @@ public class RestaurantController {
         seatingCustomer = customer.id;
 
         for (Table table : model.getTables()) {
+            if (table == null)
+                continue;
             if (table.customer == null && table.seats >= customer.partySize) {
                 view.turnTableGreen(table.id);
             } else {
@@ -127,6 +146,7 @@ public class RestaurantController {
         model.addOrder(tableNumber, table.customer.getOrder(new Menu()));
         this.orderContainer.setOrders(model.getOrders());
         customerContainer.hideDialog();
+        succes("Order added to list!", (Component) e.getSource());
     }
 
     private void tableClicked(ActionEvent e, TableButton table) {
@@ -151,6 +171,8 @@ public class RestaurantController {
             for (TableButton tableButton : view.getTables()) {
                 view.returnTableToNormal(tableButton.getTableNumber());
             }
+
+            succes("Seated customer at table " + table.getTableNumber(), table);
         }
     }
 
@@ -196,7 +218,7 @@ public class RestaurantController {
             Timer swingTimer = new Timer(ANIMATION_DURATION, new ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    cooker.addTime(ANIMATION_DURATION / 1000.);
+                    cooker.addTime(ANIMATION_DURATION /* / 1000. */);
                     view.setCookingProgress(cooker.getPercentageDone(), selectedFood.getFoodType());
                     if (cooker.checkTimer()) {
                         // The food is done
@@ -218,5 +240,15 @@ public class RestaurantController {
         inventoryContainer.setVisible(true);
         inventoryContainer.setLocationRelativeTo(view.getInventoryButton());
         inventoryContainer.updateList(model.getInventory());
+    }
+
+    public void succes(String message, Component component) {
+        succesDialog.label.setText(message);
+        succesDialog.setVisible(true);
+        succesDialog.setLocationRelativeTo(component);
+
+        Timer timer = new Timer(1000, e -> succesDialog.setVisible(false));
+        timer.setRepeats(false);
+        timer.start();
     }
 }

@@ -410,7 +410,6 @@ public class GUIContainer extends javax.swing.JFrame {
     private RoundedButton inventoryButton;
 
     public void turnTableGreen(int id) {
-        System.out.println(id);
         TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
         // FIXME: THrows
         if (tableButton == null) {

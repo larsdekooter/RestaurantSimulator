@@ -19,8 +19,9 @@ public abstract class Customer {
         receivedOrder = false;
     }
 
-    /// Return the customer's order
-    /// or create one if the customer had not ordered yet.
+    /// Return the customer's order or create one if the customer had not
+    /// ordered yet.
+    /// 
     /// @return the order of the customer
     public Order getOrder(Menu menu) {
         if (order == null) {

@@ -117,7 +117,8 @@ public class Restaurant {
     }
 
     public boolean seatCustomer(int customerId, int tableId) {
-        Customer customer = Arrays.stream(customers).filter(c -> c.id == customerId).findFirst().orElse(null);
+        Customer customer = Arrays.stream(customers).filter(c -> c != null && c.id == customerId).findFirst()
+            .orElse(null);
 
         Table table = Arrays.stream(tables).filter(t -> t.id == tableId).findFirst().orElse(null);
 
@@ -172,7 +173,7 @@ public class Restaurant {
     public Customer getNextCustomer() {
         Customer next = null;
         for (Customer customer : customers) {
-            if (!customer.seated) {
+            if (customer != null && !customer.seated) {
                 next = customer;
                 customer.seated = true;
                 break;
@@ -189,35 +190,42 @@ public class Restaurant {
 
         for (int i = 0; i < order.items.length; i++) {
             MenuItem item = order.items[i];
-            if (item.getClass() == Drink.class) continue;
+            if (item.getClass() == Drink.class)
+                continue;
             if (item.getClass() == Food.class
-                    && (((Food) item).getFoodType() == FoodType.All
-                    || ((Food) item).getFoodType() == FoodType.Cold)) continue;
+                && (((Food) item).getFoodType() == FoodType.All || ((Food) item).getFoodType() == FoodType.Cold))
+                continue;
 
-            int amountInOrder = Math.toIntExact(Arrays.stream(order.items).filter(orderItem -> orderItem.name.equals(item.name)).count());
-            int amountInInventory = Math.toIntExact(inventory.stream().filter(inventoryItem -> inventoryItem.name.equals(item.name)).count());
+            int amountInOrder = Math
+                .toIntExact(Arrays.stream(order.items).filter(orderItem -> orderItem.name.equals(item.name)).count());
+            int amountInInventory = Math
+                .toIntExact(inventory.stream().filter(inventoryItem -> inventoryItem.name.equals(item.name)).count());
 
-            if (amountInOrder > amountInInventory) return false;
+            if (amountInOrder > amountInInventory)
+                return false;
 
             i += amountInOrder;
         }
         return true;
     }
 
-
     public void serveTable(int tableNumber) {
-        Order order =  orders.get(tableNumber);
+        Order order = orders.get(tableNumber);
 
         for (int j = 0; j < order.items.length; j++) {
             MenuItem item = order.items[j];
-            if (item.getClass() == Drink.class) continue;
-            if (item.getClass() == Food.class && (((Food) item).getFoodType() == FoodType.All || ((Food) item).getFoodType() == FoodType.Cold)) continue;
+            if (item.getClass() == Drink.class)
+                continue;
+            if (item.getClass() == Food.class
+                && (((Food) item).getFoodType() == FoodType.All || ((Food) item).getFoodType() == FoodType.Cold))
+                continue;
 
             removeItemFromInventory(item);
         }
 
-        Table table =  getTable(tableNumber);
+        Table table = getTable(tableNumber);
         table.customer.receivedOrder = true;
+        orders.remove(tableNumber);
     }
 
     public double getProfit() {
