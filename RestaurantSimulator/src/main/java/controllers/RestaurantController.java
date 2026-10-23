@@ -29,7 +29,6 @@ public class RestaurantController {
 
     public Restaurant model;
     public FoodSelectionContainer foodSelectionContainer;
-    public FoodSelectionContainer inventoryContainer;
     public OrderContainer orderContainer;
     public GUIContainer view;
     public CustomerContainer customerContainer;
@@ -42,7 +41,7 @@ public class RestaurantController {
         this.model = model;
         this.view = view;
         this.foodSelectionContainer = new FoodSelectionContainer(model.getMenu());
-        this.inventoryContainer = new FoodSelectionContainer(model.getInventory());
+        this.inventoryContainer = new InventoryContainer();
         this.orderContainer = new OrderContainer(model.getTables().length);
         this.customerContainer = new CustomerContainer(view);
         this.inventoryContainer = new InventoryContainer();

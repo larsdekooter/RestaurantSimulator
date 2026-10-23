@@ -204,9 +204,6 @@ public class Restaurant {
         return true;
     }
 
-    public ArrayList<MenuItem> getInventory() {
-        return inventory;
-    }
 
     public void serveTable(int tableNumber) {
         Order order =  orders.get(tableNumber);
