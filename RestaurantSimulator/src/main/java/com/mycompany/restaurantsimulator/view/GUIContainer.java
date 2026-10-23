@@ -1,10 +1,12 @@
 package com.mycompany.restaurantsimulator.view;
 
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JProgressBar;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -146,35 +148,22 @@ public class GUIContainer extends javax.swing.JFrame {
         stove1ProgressBar = new JProgressBar();
         stove2ProgressBar = new JProgressBar();
         stove2Pane = new JLayeredPane();
+        profitLabel = new JLabel();
 
-        tables = new TableButton[] {
-                table1,
-                table2,
-                table3,
-                table4,
-                table5,
-                table6,
-                table7,
-                table8,
-                table9
-        };
+        tables = new TableButton[] { table1, table2, table3, table4, table5, table6, table8, table9 };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 850));
         setResizable(false);
         setSize(new java.awt.Dimension(1300, 797));
 
-        imagePanel2
-                .setIcon(
-                        new ImageIcon(getClass().getResource(
-                                "/com/mycompany/restaurantsimulator/view/resources/background.jpg"))); // NOI18N
+        imagePanel2.setIcon(
+            new ImageIcon(getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/background.jpg"))); // NOI18N
         imagePanel2.setOpaque(false);
         imagePanel2.setPreferredSize(new java.awt.Dimension(1300, 797));
 
-        jButton2
-                .setIcon(
-                        new ImageIcon(getClass().getResource(
-                                "/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
+        jButton2.setIcon(
+            new ImageIcon(getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/4415238-200.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,15 +178,10 @@ public class GUIContainer extends javax.swing.JFrame {
         });
 
         roundedButton3.setBackground(new java.awt.Color(255, 255, 255));
-        roundedButton3
-                .setIcon(
-                        new javax.swing.ImageIcon(
-                                getClass()
-                                        .getResource(
-                                                "/com/mycompany/restaurantsimulator/view/resources/order.png"))); // NOI18N
+        roundedButton3.setIcon(new javax.swing.ImageIcon(
+            getClass().getResource("/com/mycompany/restaurantsimulator/view/resources/order.png"))); // NOI18N
         roundedButton3.setBorderPainted(false);
-        roundedButton3
-                .setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        roundedButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         roundedButton3.setPreferredSize(new java.awt.Dimension(80, 80));
         roundedButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -262,340 +246,101 @@ public class GUIContainer extends javax.swing.JFrame {
         stove2Pane.add(stove2, 2, 0);
         stove2Pane.add(stove2ProgressBar, 1, 0);
 
-        javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(
-                imagePanel2);
-        imagePanel2.setLayout(imagePanel2Layout);
-        imagePanel2Layout
-                .setHorizontalGroup(
-                        imagePanel2Layout
-                                .createParallelGroup(
-                                        GroupLayout.Alignment.LEADING)
-                                .addGroup(
-                                        GroupLayout.Alignment.TRAILING,
-                                        imagePanel2Layout
-                                                .createSequentialGroup()
-                                                .addGroup(
-                                                        imagePanel2Layout
-                                                                .createParallelGroup(
-                                                                        GroupLayout.Alignment.LEADING)
-                                                                .addGroup(
-                                                                        imagePanel2Layout
-                                                                                .createSequentialGroup()
-                                                                                .addGap(
-                                                                                        61,
-                                                                                        61,
-                                                                                        61)
-                                                                                .addComponent(
-                                                                                        table4,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        72,
-                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(
-                                                                                        287,
-                                                                                        287,
-                                                                                        287)
-                                                                                .addComponent(
-                                                                                        table5,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        72,
-                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(
-                                                                                        277,
-                                                                                        277,
-                                                                                        277)
-                                                                                .addComponent(
-                                                                                        table6,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        72,
-                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(
-                                                                                        87,
-                                                                                        87,
-                                                                                        87)
-                                                                                .addComponent(
-                                                                                        table7,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        72,
-                                                                                        GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(
-                                                                        imagePanel2Layout
-                                                                                .createSequentialGroup()
-                                                                                .addGap(
-                                                                                        96,
-                                                                                        96,
-                                                                                        96)
-                                                                                .addComponent(
-                                                                                        table8,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        72,
-                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(
-                                                                                        18,
-                                                                                        18,
-                                                                                        18)
-                                                                                .addComponent(
-                                                                                        table9,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        74,
-                                                                                        GroupLayout.PREFERRED_SIZE)))
-                                                .addPreferredGap(
-                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                        228,
-                                                        Short.MAX_VALUE)
-                                                .addComponent(jButton2)
-                                                .addGap(26, 26, 26))
-                                .addGroup(
-                                        imagePanel2Layout
-                                                .createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addComponent(
-                                                        roundedButton3,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        Short.MAX_VALUE))
-                                .addGroup(
-                                        GroupLayout.Alignment.TRAILING,
-                                        imagePanel2Layout
-                                                .createSequentialGroup()
-                                                .addGap(335, 335, 335)
-                                                .addComponent(
-                                                        table3,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        72,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGap(105, 105, 105)
-                                                .addComponent(
-                                                        table2,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        72,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGap(80, 80, 80)
-                                                .addComponent(
-                                                        table1,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        72,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(
-                                                        ComponentPlacement.UNRELATED)
-                                                .addGroup(
-                                                        imagePanel2Layout
-                                                                .createParallelGroup(
-                                                                        GroupLayout.Alignment.LEADING)
-                                                                .addComponent(
-                                                                        stove1,
-                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                        145,
-                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(
-                                                                        stove1ProgressBar,
-                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                        145,
-                                                                        GroupLayout.PREFERRED_SIZE))
-                                                .addGap(407, 407, 407))
-                                .addGroup(
-                                        imagePanel2Layout
-                                                .createSequentialGroup()
-                                                // .addContainerGap(GroupLayout.DEFAULT_SIZE,
-                                                // Short.MAX_VALUE)
-                                                .addGap(587, 587, 587)
-                                                .addComponent(
-                                                        stove2Pane,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)));
-        imagePanel2Layout
-                .setVerticalGroup(
-                        imagePanel2Layout
-                                .createParallelGroup(
-                                        GroupLayout.Alignment.LEADING)
-                                .addGroup(
-                                        imagePanel2Layout
-                                                .createSequentialGroup()
-                                                .addGroup(
-                                                        imagePanel2Layout
-                                                                .createParallelGroup(
-                                                                        GroupLayout.Alignment.LEADING)
-                                                                .addGroup(
-                                                                        imagePanel2Layout
-                                                                                .createSequentialGroup()
-                                                                                .addGap(
-                                                                                        121,
-                                                                                        121,
-                                                                                        121)
-                                                                                .addComponent(
-                                                                                        jButton2,
-                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                        105,
-                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                .addPreferredGap(
-                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                                                .addGroup(
-                                                                        imagePanel2Layout
-                                                                                .createSequentialGroup()
-                                                                                .addGroup(
-                                                                                        imagePanel2Layout
-                                                                                                .createParallelGroup(
-                                                                                                        GroupLayout.Alignment.LEADING)
-                                                                                                .addGroup(
-                                                                                                        imagePanel2Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(
-                                                                                                                        109,
-                                                                                                                        109,
-                                                                                                                        109)
-                                                                                                                .addComponent(
-                                                                                                                        table4,
-                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                        63,
-                                                                                                                        GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(
-                                                                                                        imagePanel2Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(
-                                                                                                                        72,
-                                                                                                                        72,
-                                                                                                                        72)
-                                                                                                                .addComponent(
-                                                                                                                        table5,
-                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                        63,
-                                                                                                                        GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(
-                                                                                                        imagePanel2Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(
-                                                                                                                        64,
-                                                                                                                        64,
-                                                                                                                        64)
-                                                                                                                .addGroup(
-                                                                                                                        imagePanel2Layout
-                                                                                                                                .createParallelGroup(
-                                                                                                                                        GroupLayout.Alignment.BASELINE)
-                                                                                                                                .addComponent(
-                                                                                                                                        table6,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        63,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addComponent(
-                                                                                                                                        table7,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        63,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE))))
-                                                                                .addGroup(
-                                                                                        imagePanel2Layout
-                                                                                                .createParallelGroup(
-                                                                                                        GroupLayout.Alignment.LEADING)
-                                                                                                .addGroup(
-                                                                                                        imagePanel2Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(
-                                                                                                                        107,
-                                                                                                                        107,
-                                                                                                                        107)
-                                                                                                                .addComponent(
-                                                                                                                        stove1,
-                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                        47,
-                                                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(
-                                                                                                                        stove1ProgressBar))
-                                                                                                .addGroup(
-                                                                                                        imagePanel2Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(
-                                                                                                                        47,
-                                                                                                                        47,
-                                                                                                                        47)
-                                                                                                                .addGroup(
-                                                                                                                        imagePanel2Layout
-                                                                                                                                .createParallelGroup(
-                                                                                                                                        GroupLayout.Alignment.BASELINE)
-                                                                                                                                .addComponent(
-                                                                                                                                        table1,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        63,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addComponent(
-                                                                                                                                        table2,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        63,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addComponent(
-                                                                                                                                        table3,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        63,
-                                                                                                                                        GroupLayout.PREFERRED_SIZE))))))
-                                                .addGap(120, 120, 120)
-                                                .addComponent(
-                                                        stove2Pane,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20)
-                                                .addGroup(
-                                                        imagePanel2Layout
-                                                                .createParallelGroup(
-                                                                        GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(
-                                                                        table8,
-                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                        63,
-                                                                        GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(
-                                                                        table9,
-                                                                        GroupLayout.PREFERRED_SIZE,
-                                                                        63,
-                                                                        GroupLayout.PREFERRED_SIZE))
-                                                .addGap(10, 10, 10)
-                                                .addComponent(
-                                                        roundedButton3,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        Short.MAX_VALUE)));
+        profitLabel.setText("€" + profit);
+        profitLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-                getContentPane());
+        javax.swing.GroupLayout imagePanel2Layout = new javax.swing.GroupLayout(imagePanel2);
+        imagePanel2.setLayout(imagePanel2Layout);
+        imagePanel2Layout.setHorizontalGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(profitLabel, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+            .addGroup(GroupLayout.Alignment.TRAILING,
+                imagePanel2Layout.createSequentialGroup()
+                    .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(imagePanel2Layout.createSequentialGroup().addGap(61, 61, 61)
+                            .addComponent(table4, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                            .addGap(287, 287, 287)
+                            .addComponent(table5, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                            .addGap(277, 277, 277)
+                            .addComponent(table6, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                            .addGap(87, 87, 87)
+                            .addComponent(table7, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(imagePanel2Layout.createSequentialGroup().addGap(96, 96, 96)
+                            .addComponent(table8, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(table9, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                    .addComponent(jButton2).addGap(26, 26, 26))
+            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(20, 20, 20)
+                .addComponent(roundedButton3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(GroupLayout.Alignment.TRAILING, imagePanel2Layout.createSequentialGroup().addGap(335, 335, 335)
+                .addComponent(table3, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE).addGap(105, 105, 105)
+                .addComponent(table2, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE).addGap(80, 80, 80)
+                .addComponent(table1, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(ComponentPlacement.UNRELATED)
+                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(stove1, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stove1ProgressBar, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
+                .addGap(407, 407, 407))
+            .addGroup(imagePanel2Layout.createSequentialGroup()
+                // .addContainerGap(GroupLayout.DEFAULT_SIZE,
+                // Short.MAX_VALUE)
+                .addGap(587, 587, 587).addComponent(stove2Pane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE,
+                    GroupLayout.PREFERRED_SIZE)));
+
+        imagePanel2Layout.setVerticalGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(imagePanel2Layout.createSequentialGroup()
+                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(profitLabel, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(imagePanel2Layout.createSequentialGroup().addGap(121, 121, 121)
+                        .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(imagePanel2Layout.createSequentialGroup()
+                        .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(109, 109, 109)
+                                .addComponent(table4, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(72, 72, 72).addComponent(table5,
+                                GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(64, 64, 64)
+                                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(table6, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(table7, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(107, 107, 107)
+                                .addComponent(stove1, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(stove1ProgressBar))
+                            .addGroup(imagePanel2Layout.createSequentialGroup().addGap(47, 47, 47)
+                                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(table1, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(table2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(table3, GroupLayout.PREFERRED_SIZE, 63,
+                                        GroupLayout.PREFERRED_SIZE))))))
+                .addGap(120, 120, 120)
+                .addComponent(
+                    stove2Pane, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(table8, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(table9, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10).addComponent(roundedButton3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout
+                .createSequentialGroup().addContainerGap().addComponent(imagePanel2, GroupLayout.PREFERRED_SIZE,
+                    GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout
-                .setHorizontalGroup(
-                        layout
-                                .createParallelGroup(
-                                        GroupLayout.Alignment.LEADING)
-                                .addGroup(
-                                        layout
-                                                .createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(
-                                                        imagePanel2,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        Short.MAX_VALUE)));
-        layout
-                .setVerticalGroup(
-                        layout
-                                .createParallelGroup(
-                                        GroupLayout.Alignment.LEADING)
-                                .addGroup(
-                                        layout
-                                                .createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(
-                                                        imagePanel2,
-                                                        GroupLayout.PREFERRED_SIZE,
-                                                        GroupLayout.DEFAULT_SIZE,
-                                                        GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap(
-                                                        197,
-                                                        Short.MAX_VALUE)));
+            .setVerticalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(layout
+                        .createSequentialGroup().addContainerGap().addComponent(imagePanel2, GroupLayout.PREFERRED_SIZE,
+                            GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(197, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -604,8 +349,7 @@ public class GUIContainer extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        java.awt.EventQueue
-                .invokeLater(() -> new GUIContainer().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIContainer().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -627,11 +371,11 @@ public class GUIContainer extends javax.swing.JFrame {
     private com.mycompany.restaurantsimulator.view.components.RoundedButton stove2;
     private javax.swing.JProgressBar stove2ProgressBar;
     private javax.swing.JLayeredPane stove2Pane;
+    private int profit = 20000;
+    private JLabel profitLabel;
 
     public void turnTableGreen(int id) {
-        TableButton tableButton = Arrays.stream(tables)
-                .filter(t -> t.getTableNumber() == id)
-                .findFirst().orElse(null);
+        TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
         // FIXME: THrows
         if (tableButton == null)
             throw new RuntimeException("Table number not found");
@@ -640,9 +384,7 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     public void turnTableRed(int id) {
-        TableButton tableButton = Arrays.stream(tables)
-                .filter(t -> t.getTableNumber() == id)
-                .findFirst().orElse(null);
+        TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
 
         if (tableButton == null)
             throw new RuntimeException("Table number not found");
@@ -651,14 +393,17 @@ public class GUIContainer extends javax.swing.JFrame {
     }
 
     public void returnTableToNormal(int id) {
-        TableButton tableButton = Arrays.stream(tables)
-                .filter(t -> t.getTableNumber() == id)
-                .findFirst().orElse(null);
+        TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
 
         if (tableButton == null)
             throw new RuntimeException("Table number not found");
 
         tableButton.setForeground(new java.awt.Color(0, 0, 0));
     }
+
+    public void setProfit(int profit) {
+        this.profit = profit;
+    }
+
     // End of variables declaration//GEN-END:variables
 }

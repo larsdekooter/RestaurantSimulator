@@ -17,7 +17,7 @@ public class RestaurantSimulator {
         // Initialize Model
         Restaurant restaurant = new Restaurant("De Kooter's", 9, 2);
 
-        // Initialize Controller
+        // Initialize Controller)
         RestaurantController restaurantController = new RestaurantController(restaurant, container);
 
         container.setVisible(true);

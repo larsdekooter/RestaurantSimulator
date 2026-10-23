@@ -4,7 +4,6 @@
  */
 package com.mycompany.restaurantsimulator.view.components;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -42,8 +42,7 @@ public class RestaurantController {
 
         view.getNewCustomersButton().addActionListener(this::seatCustomer);
 
-        view.getOrderButton()
-                .addActionListener((e) -> orderContainer.setVisible(true));
+        view.getOrderButton().addActionListener((e) -> orderContainer.setVisible(true));
 
         customerContainer.getRetrieveOrderButton().addActionListener(this::retrieveOrder);
 
@@ -87,7 +86,6 @@ public class RestaurantController {
     private void tableClicked(ActionEvent e, TableButton table) {
         if (seatingCustomer == -1) {
             Table foundTable = null;
-            System.out.println(table.getTableNumber());
             for (Table tableLoop : model.getTables()) {
                 if (tableLoop.id == table.getTableNumber()) {
                     foundTable = tableLoop;
@@ -120,8 +118,7 @@ public class RestaurantController {
         view.setEnabled(false);
         customerContainer.setLocationRelativeTo(table);
 
-        customerContainer.getServeCheckButton()
-                .addActionListener((e) -> model.settleTable(table.getTableNumber()));
+        customerContainer.getServeCheckButton().addActionListener((e) -> model.settleTable(table.getTableNumber()));
     }
 
     public void setRectangularStoveProgress(int progress) {
