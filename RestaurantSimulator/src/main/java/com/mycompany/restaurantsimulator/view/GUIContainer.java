@@ -111,6 +111,10 @@ public class GUIContainer extends javax.swing.JFrame {
         return this.furnaceProgress;
     }
 
+    public RoundedButton getInventoryButton() {
+        return this.inventoryButton;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -349,9 +353,12 @@ public class GUIContainer extends javax.swing.JFrame {
                 .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(table8, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
                     .addComponent(table9, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE))
-                .addComponent(inventoryButton, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10).addComponent(roundedButton3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                    GroupLayout.PREFERRED_SIZE)
+
+                .addGap(10, 10, 10)
+                .addGroup(imagePanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(roundedButton3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                        GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inventoryButton, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
