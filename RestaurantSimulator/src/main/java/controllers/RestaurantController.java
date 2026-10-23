@@ -70,10 +70,8 @@ public class RestaurantController {
     }
 
     private void seatCustomer(ActionEvent e) {
-        Customer customer = new WealthyCustomer(model.nextCustomerId(), 6);
-        boolean added = model.addCustomer(customer);
-        if (!added)
-            return;
+        Customer customer = model.getNextCustomer();
+
         seatingCustomer = customer.id;
 
         for (Table table : model.getTables()) {
@@ -86,16 +84,12 @@ public class RestaurantController {
     }
 
     private void retrieveOrder(ActionEvent e) {
-        int tableNumber = Integer.parseInt(customerContainer.getTitle().replaceAll("Table ", ""));
-        Table table = null;
-        for (Table loopTable : model.getTables()) {
-            if (loopTable.id == tableNumber) {
-                table = loopTable;
-            }
-        }
-        if (table == null)
-            throw new Error("No table could be found!");
+        int tableNumber = customerContainer.tableNumber;
+        Table table = model.getTable(tableNumber);
 
+        if (table == null) {
+            throw new Error("No table could be found!");
+        }
         model.addOrder(tableNumber, table.customer.getOrder(new Menu()));
         this.orderContainer.setOrders(model.getOrders());
         customerContainer.hideDialog();
@@ -103,12 +97,8 @@ public class RestaurantController {
 
     private void tableClicked(ActionEvent e, TableButton table) {
         if (seatingCustomer == -1) {
-            Table foundTable = null;
-            for (Table tableLoop : model.getTables()) {
-                if (tableLoop.id == table.getTableNumber()) {
-                    foundTable = tableLoop;
-                }
-            }
+            Table foundTable = model.getTable(table.getTableNumber());
+
             if (foundTable == null) {
                 throw new Error("No table found");
             }

@@ -1,6 +1,9 @@
 package com.mycompany.restaurantsimulator.models;
 
+import com.mycompany.restaurantsimulator.models.customers.AverageCustomer;
 import com.mycompany.restaurantsimulator.models.customers.Customer;
+import com.mycompany.restaurantsimulator.models.customers.ImpatientCustomer;
+import com.mycompany.restaurantsimulator.models.customers.WealthyCustomer;
 import com.mycompany.restaurantsimulator.models.menuItems.MenuItem;
 import com.mycompany.restaurantsimulator.models.stoves.Stove;
 
@@ -29,10 +32,29 @@ public class Restaurant {
         this.profit = 0.0;
 
         createTables();
+        setupCustomers();
+    }
+
+    private void setupCustomers() {
+        for (int i = 0; i < this.customers.length; i++) {
+            switch (i % 3) {
+                case 0:
+                    customers[i] = new AverageCustomer(i, i + 1);
+                    break;
+                case 1:
+                    customers[i] = new ImpatientCustomer(i, i);
+                    break;
+                case 2:
+                    customers[i] = new WealthyCustomer(i, i);
+                    break;
+                default:
+                    customers[i] = new AverageCustomer(i, i);
+            }
+        }
     }
 
     private void createTables() {
-        for (int i = 0; i < tables.length; i++) {
+        for (int i = 0; i < tables.length - 1; i++) {
             tables[i] = new Table(i + 1, i + 1);
         }
     }
@@ -141,5 +163,17 @@ public class Restaurant {
         int index = getItemIndexInInventory(item);
         if (index > -1)
             inventory.remove(index);
+    }
+
+    public Customer getNextCustomer() {
+        Customer next = null;
+        for(Customer customer : customers) {
+            if (!customer.seated) {
+                next = customer;
+                customer.seated = true;
+                break;
+            }
+        }
+        return next;
     }
 }

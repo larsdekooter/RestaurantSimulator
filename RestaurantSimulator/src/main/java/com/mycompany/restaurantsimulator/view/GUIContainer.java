@@ -151,7 +151,7 @@ public class GUIContainer extends javax.swing.JFrame {
         furnacePane = new JLayeredPane();
         profitLabel = new JLabel();
 
-        tables = new TableButton[] { table1, table2, table3, table4, table5, table6, table8, table9 };
+        tables = new TableButton[] { table1, table2, table3, table4, table5, table6, table7, table8, table9 };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 850));
@@ -376,20 +376,21 @@ public class GUIContainer extends javax.swing.JFrame {
     private JLabel profitLabel;
 
     public void turnTableGreen(int id) {
+        System.out.println(id);
         TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
         // FIXME: THrows
-        if (tableButton == null)
+        if (tableButton == null) {
             throw new RuntimeException("Table number not found");
-
+        }
         tableButton.setForeground(new java.awt.Color(0, 255, 0));
     }
 
     public void turnTableRed(int id) {
         TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
 
-        if (tableButton == null)
+        if (tableButton == null) {
             throw new RuntimeException("Table number not found");
-
+        }
         tableButton.setForeground(new java.awt.Color(255, 0, 0));
     }
 

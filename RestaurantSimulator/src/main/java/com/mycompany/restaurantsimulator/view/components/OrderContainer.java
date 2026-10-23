@@ -105,9 +105,9 @@ public class OrderContainer extends javax.swing.JFrame {
 
     private void updateTableSelection(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_updateTableSelection
         int selectedIndex = jComboBox2.getSelectedIndex() + 1;
+        DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
+        model.clear();
         if (selectedIndex != -1 && orders.containsKey(selectedIndex)) {
-            DefaultListModel<String> model = (DefaultListModel<String>) jList1.getModel();
-            model.clear();
             Order order = orders.get(selectedIndex);
             if (order == null)
                 return;

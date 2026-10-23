@@ -22,7 +22,7 @@ import com.mycompany.restaurantsimulator.models.Table;
  */
 public class CustomerContainer extends javax.swing.JDialog implements WindowListener {
 
-    private int tableNumber;
+    public int tableNumber;
     private Table table;
     private JFrame frame;
 
