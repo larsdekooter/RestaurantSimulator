@@ -218,7 +218,7 @@ public class RestaurantController {
             Timer swingTimer = new Timer(ANIMATION_DURATION, new ActionListener() {
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    cooker.addTime(ANIMATION_DURATION /* / 1000. */);
+                    cooker.addTime(ANIMATION_DURATION / 1000.);
                     view.setCookingProgress(cooker.getPercentageDone(), selectedFood.getFoodType());
                     if (cooker.checkTimer()) {
                         // The food is done

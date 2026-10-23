@@ -411,7 +411,6 @@ public class GUIContainer extends javax.swing.JFrame {
 
     public void turnTableGreen(int id) {
         TableButton tableButton = Arrays.stream(tables).filter(t -> t.getTableNumber() == id).findFirst().orElse(null);
-        // FIXME: THrows
         if (tableButton == null) {
             throw new RuntimeException("Table number not found");
         }

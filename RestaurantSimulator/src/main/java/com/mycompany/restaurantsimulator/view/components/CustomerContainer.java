@@ -5,7 +5,6 @@
 package com.mycompany.restaurantsimulator.view.components;
 
 import java.awt.Cursor;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
@@ -23,7 +22,6 @@ import com.mycompany.restaurantsimulator.models.Table;
 public class CustomerContainer extends javax.swing.JDialog implements WindowListener {
 
     public int tableNumber;
-    private Table table;
     private JFrame frame;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger
@@ -104,7 +102,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                 shrinkButton(evt);
             }
         });
-        serveCheckButton.addActionListener(this::serveCheckButtonActionPerformed);
 
         retrieveOrderButton.setBorderRadius(20);
         retrieveOrderButton.setText("Retrieve order");
@@ -118,8 +115,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
                 shrinkButton(evt);
             }
         });
-
-        retrieveOrderButton.addActionListener(this::retrieveOrderButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,14 +166,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
 
     public RoundedButton getRetrieveOrderButton() {
         return this.retrieveOrderButton;
-    }
-
-    private void serveCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_roundedButton2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_roundedButton2ActionPerformed
-
-    private void retrieveOrderButtonActionPerformed(ActionEvent evt) {
-
     }
 
     /**
@@ -248,7 +235,6 @@ public class CustomerContainer extends javax.swing.JDialog implements WindowList
     }
 
     public void openTableView(Table table) {
-        this.table = table;
         setVisible(true);
         setTitle("Table " + table.id);
         getLabel().setText("Table " + table.id);
